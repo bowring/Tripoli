@@ -36,3 +36,9 @@ C:\DEVELOPMENT\Tripoli_2015\Interop.Microsoft.Office.Core.dll
 C:\DEVELOPMENT\Tripoli_2015\obj\Debug\Tripoli.csprojResolveAssemblyReference.cache
 C:\DEVELOPMENT\Tripoli_2015\Microsoft.Office.Interop.Excel.dll
 C:\DEVELOPMENT\Tripoli_2015\Microsoft.Office.Interop.Excel.xml
+C:\DEVELOPMENT\Tripoli_2015_git\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\DEVELOPMENT\Tripoli_2015_git\obj\Debug\Tripoli.csproj.ResolveComReference.cache
+C:\DEVELOPMENT\Tripoli_2015_git\Tripoli.exe.config
+C:\DEVELOPMENT\Tripoli_2015_git\obj\Debug\Tripoli.exe
+C:\DEVELOPMENT\Tripoli_2015_git\Tripoli.xml
+C:\DEVELOPMENT\Tripoli_2015_git\obj\Debug\Tripoli.pdb
