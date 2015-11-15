@@ -1,0 +1,16 @@
+EARTHTIME ID-TIMS DATA IMPORT TEMPLATE FOR TRIPOLI,,,,,,,,,,
+DIRECTIONS:  ,,,,,,,,,,
+,Enter date as mm/dd/yyyy in cell B10.,,,,,,,,,
+,Enter Sample Name in cell B11.,,,,,,,,,
+,Enter Fraction Name in cell B12.,,,,,,,,,
+,Enter cycles per block in cell B13.  A zero denotes all data considered as a single block.,,,,,,,,,
+,"Name each column B16, C16, etc. with a ratio or function name such as 206/204.",,,,,,,,,
+,Number cycles starting with 1 at row 17 and paste cycle data starting at cell B17.,,,,,,,,,
+
+Date:,1/1/2010,,,,,,,,,
+Sample:,S1,,,,,,,,,
+Fraction:,Z1,,,,,,,,,
+cycles/blk:,10,,,,,,,,,
+
+START DATA,,,,,,,,,,
+cycle #,name 1,name 2,name 3,name 4,name 5,name 6,name 7,name 8,name 9,etc.

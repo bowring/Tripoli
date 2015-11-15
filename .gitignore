@@ -1,7 +1,9 @@
 # Generated
-.config
-.dll
-.xml
-.application
-.exe
-.manifest
+*.config
+*.dll
+*.xml
+*.application
+*.exe
+*.manifest
+*.pfx
+*.LIC

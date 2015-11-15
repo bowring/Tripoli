@@ -1,0 +1,220 @@
+13.August.2011:  Release 4.6.4.00
+		Announce:	We have not kept up with page.  
+
+15.January.2007: Release 4.5.4.1
+		ALERT:		*********************************************************************************
+					If your uranium ratios do not automatically oxide-correct or if U-fractionation
+					correction does not automatically become available, it is because Tripoli
+					has learned to recognize ratio names based on the idioms of the MIT lab.
+					Please send exemplar files to bowring@gmail.com so that we may learn how you
+					and/or your machine name ratios and thus have Tripoli recognize them.
+					*********************************************************************************
+					
+		Announce:	This release of Tripoli provides access to the official EARTHTIME website,
+					www.earth-time.org and automatically makes EARTHTIME's official tracer
+					repository available to Tripoli users via the program.  The XML versions of these
+					tracers can be found at: 
+					http://www.earth-time.org/projects/upb/public_data/EARTHTIME_tracers/XML
+					
+		Note:		The changes in this version are a result of a meeting at MIT on 5.October.2007
+					with Jim BOwring, Noah McClean, Blaire Shoene, and Sam Bowring to detail
+					the next set of featuresa for U-Pb_Redux.  One major result was a re-thinking
+					of how values would be stored so as to aid in the understanding and tracking of
+					the propagation of uncertainties.  Consequently, some data structures and 
+					XML shema were changed to reflect these improvements. One immediate consequence 
+					is that previously fractionation-corrected files saved as Tripoli WorkFiles are
+					not compatible with this version.  The solution is to open the files in the previous
+					version, remove the fractionation correction and re-save the Tripoli file.
+					Then open the file with this version, import the tracer, and fractionate and save.
+					
+		Bug:		Fixed graphs so controls are synched as well as data and graph.
+		
+		Upgrade:	Tripoli now computes a new ratio 238/233 OxideCorrected by division when 238/235 and
+					233/235 are present due to oxide correction by Tripoli.  This new ratio
+					can then be fractionation-corrected using the alphaU calculated on a point by
+					point basis for the fractionation correction of the 238/235 and 233/235 from which
+					it was calculated.  The fractionation correction multiplies each datapoint
+					by (1 + 5*alphaU), alphaU also point-specific.
+					
+		Feature:	The lower left corner of the main Tripoli window contains a small black box.
+					The box will display "A" if the Tripoli Work File is annotated with anything 
+					other than "" or "Notations" .  Also, annotation capability has been added
+					to history files.
+					
+		Feature:	We introduce the KwikiExporter (named by Blair Shoene in honor of The Simpsons.)
+					This version of KwikiExporter writes to the clipboard the mean and standard error
+					for each needed ratio in a way that allows immediate pasting to PbMacDat 2.  The
+					order is specified by Noah McLean as:
+							206/204, 206/207, 206/208, 206/205, 238/235, 233/235
+					Missing ratios are elided, and the reported ratio names are listed in a 
+					pop-up message created when the user presses the report button on KwikiExporter.
+					Thus, if the lead ratios are present, they will appear in the clipboard.  Likwise
+					for the uranium ratios.  If the user has selected more than one ratio of the same
+					name, only the first found is used.
+					KwikiExporter is launched from the Export menu.	
+
+21.August.2007: Release 4.5.3.1
+		Upgrade:	The license key is changed in this version to increase security and to adapt to
+					a change in windows.  Your license will reset to 45 days and you will need to 
+					contact bowring@gmail.com with the new code for a lease extension matching or
+					exceeding your previous lease.
+
+19.August.2007: Release 4.5.3.0
+		Feature:	Added automatic update checking at startup and on call from Help menu.
+		Misc:		Re-organized code base.
+
+23.July.2007: Release 4.5.2.8
+		Bug:		Fixed backward compatibility issue with exporting U-Pb_Redux data (thanks to Noah McLean)
+      
+23.July.2007:Release 4.5.2.7
+		Bug:		Trapped potential divide by zero when missing data points during fractionation correction
+					(thanks to Noah McLean)
+              
+06.June.2007: Release 4.5.2.6
+		Bug:		Now, while reading Finnegan data files, trailing partial as well as empty lines 
+					are ignored and do not cause an error.  
+
+04.June.2007: Release 4.5.2.5
+		Change:		Fixed parsing of Finnegan .exp files to help with pairing of Uranium ratios
+					for fractionation correction.  For now, the user must make the contents
+					of the string in parens equal for each pair:  was: '(1)' and '(2)' for example and 
+					now must be '(1)' and '(1)'  or '(xxx)'  and '(xxx)'.  Improvements to follow.
+
+03.June.2007: Release 4.5.2.4
+		Bug:		Fixed naming and pairing of oxide-corrected fractions
+		Change:		Added warning if export attempted without saving workfile
+	
+03.June.2007: Release 4.5.2.3
+		Change:		The mean alphaU reported with an export to U-Pb_Redux is now the mean of the selected
+					data.  The mean for all the data is still reported in the tracer menu item 
+					'Show Fractionation Report ...'
+		Bug:		The oxide correction is now only performed on good data (> 0).  THis prevents
+					division by zero.
+
+30.May.2007: Release 4.5.2.1
+		Bug:		Fixed graph rendering problem with automatically oxide-corrected ratios
+		Bug:		Fixed issue with settings so that only numeric values may be entered
+	
+29.May.2007: Release 4.5.2.0
+		Change:		ALERT: Please remove the fractionation corrections from any saved Tripoli WorkFiles
+					because this version will not open previously corrected versions.
+		Feature:	Oxide correction using r18O_16O is automatically performed upon read-in of data.
+					If you want a different value than 0.002, change the default under settings and 
+					re-import your raw data.
+	        
+22.April.2007: release 4.5.1.5
+		Change:		The date format of the Tracer certified date is changed to yyyy-mm-dd
+					from the full date and time.  The Earth-Time tracers and schema have 
+					also been changed.  If you get a parser warning when you open a locally
+					save Tracer, merely re-save it and the error will self-correct.
+		Change:		In preparation for Earth-Time.org's release of U-Pb_Redux, Tripoli exports
+					an xml file of selected ratios for use by U-Pb_Redux.
+
+10.April.2007: release 4.5.1.1
+		Bugs:	Minor bug fixes with export functionality
+
+06.April.2007: release 4.5.1.0
+		WARNING:	Due to an upgrade in Microsoft's dotNet virtual operating system, any
+					files saved by this version of Tripoli will not open with previous versions
+					of Tripoli ==> Backup your files if you think you may revert.
+	         
+		Change:		GRAPHS: The term outlier has been replaced by the term "discard" to emphasize the
+		  				recommended practice of first discarding whole blocks of data because of
+						equipment start-up, burnoff and shakedown effects.  The blocks can be 
+						discarded easily in the graph by right-clicking a block.
+	
+		Feature:	GRAPHS: Improved the toolset for graphs to include the following:
+					1. View a histogram overlay of the data with a bin count chooser (refined)
+					2. Allow the user to Include, Ignore, or Hide the discards on a graph
+					3. Allow the user to discard manually (default) or by using once either
+						of a 2-sigma discard or an application of Chauvenet's Criterion.  Chauvenet's
+						criterion can be set under the Settings menu of Tripoli.  There is also
+						a link to an explanation of the calculations in the same menu popup.
+						The discards created by each of these techniques are shown as circled
+						red points. 
+					4. RECOMMENDATION: to prepare to use the 2-sigma or Chauvenet method, 
+						it is recommended that you discard only whole blocks 
+						(right mouse click the block.)
+					5. Allow the user to disable the auto-calculation of statistics by
+						clicking a checkbox.  The mean is drawn as a red line to warn the
+						user that the statistics are stale.  Exception: Chauvenet's Criterion
+						is disabled when auto-calc is disabled as the Criterion depends on 
+						successive re-calculations of the statistics.
+					6. Added menu item to graphs under "Graph/Stats Detail" that allows user
+		 				to select whether shaded 2-sigma and sigma are shown (refined.)
+		 		   
+		Feature:	Provide for the use of Tracers to calculate fractionation corrections for Uranium.
+					When a data set is loaded into Tripoli, it is scanned for pairs of
+					238/238 and 233/235.  If at least one pair exists, then Tripoli enables the
+					Tracer menu.  The Tracer menu provides for using standard tracers provided
+					by Earth-Time.org or for creating and saving your own tracers.  In addition,
+					the Settings menu allows you to set the gravimetric ratio r238_235g that is
+					used in the fractionation correction calculations.  Under the Tracer menu, once
+					a tracer is made active, fractionation corrections can be applied to the
+					uranium pairs.  These can be reversed as well if you choose to use another
+					tracer or a different gravimetric value.  The Tracer menu also provides a report
+					for the paired ratios and if they have been corrected, reports the mean alphaU
+					as well as the Tracer name and gravimetric ratio.
+			 
+		Feature:	Provide access to some of the public resources of Earth-Time.org including
+					a data-dictionary for U-Pb and Tracer specifications.  See the menu
+					item Earth-Time.org.
+			 
+		Bug re:		Importing .dat files no lnger uses the first block to determine the
+					data counts.  Rather it pre-scans the data and accommodates missing
+					points in every block.  Thanks to Matt Rioux at MIT for finding this.
+	         
+		Feature:	Provide for the export to tab-delimited format of all checked ratios.
+					See menu item Export.
+			 
+
+20.December.2006: release 4.3.2.0
+		Feature:	Added 2-sigma visualization to graphs
+    
+		Feature:	Added histogram with 5, 10, 15, or 20 buckets to graphs.  0 buckets disables.
+
+12.December.2006: release 4.3.0.1
+		Bug re:		title of graph window fixed to show current sample if save as .trip file
+		Feature:	Added 'Auto-Calculate' checkbox to individual ratio graphs to allow user to
+					postpone the calculation of statistics until ready.
+		Feature:	beta export function to create text input file for Earth-Time.org U-Pb_Redux software
+
+22.March.2006: release 4.2.1.1
+		Feature:	Graphs: right-click toggles the outlier status of data to the 
+					minority presence -- all black --> red, etc.
+		Feature:	Tooltips now display for 1000 ms instead of 20000
+		Feature:	Drag and drop for gains and standards history folders if they have been initialized
+
+22.March.2006: release 4.2.0.4
+		Feature:	Thermo-Finnegan .exp files now show only one block for all data including 
+					"D" values shown as missing
+
+15.March.2006: release 4.2.0.3
+		Feature:	Thermo-Finnegan .exp files initially graph any "X"'d data as outliers
+		Feature:	Thermo-FInnegan .exp files now open with excel upon double-click of status bar
+
+12.March.2006: release 4.2.0.2
+		Bugs:		misc minor bugs fixed
+		Feature:	added ability to import and graph Thermo-Finnegan .exp files
+		Feature:	added drag and drop of .trip, .triphis, .xls, .dat, .exp files
+
+13.December.2005: release 4.1.0.3:
+		Bug re:		number of gains files fixed
+		Feature:	Gains settings for sigma count now must be set with up/down arrows only
+		Feature:	A gains file is an excel file starting with the letters CC (was CCGain)
+
+11.December.2005: release 4.1.0.2:
+					Standards ready to try includes live update of edited tripolized members
+
+10.December.2005: release 4.1.0.1 : 
+					Printing improved
+					Gains history improved
+					Menus improved
+					Standards history started
+
+22.August.2005: release 3.0.1.9: 
+					Printing improved
+
+02.August.2005: release 3.0.1.8
+
+01.August.2005: release 3.0.1.7

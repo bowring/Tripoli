@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{61362D4D-B4DE-4345-A2EF-E7AAA49EC819}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>Tripoli2.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Tripoli</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Tripoli</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>Tripoli.frmMainTripoli</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>10395A5DB03200F5AD84DC8145127FC6382B5189</ManifestCertificateThumbprint>
+    <ManifestKeyFile>Tripoli_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <TargetZone>LocalIntranet</TargetZone>
+    <SignManifests>true</SignManifests>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://www.thevaccinator.com/tripoli/publish/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>mailto:bowring%40gmail.com%3fsubject=Tripoli</SupportUrl>
+    <TargetCulture>en-US</TargetCulture>
+    <ProductName>Tripoli</ProductName>
+    <PublisherName>Sunchex Systems LLC</PublisherName>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>4.8.0.4</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>Tripoli.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'TEST_Release|AnyCPU' ">
+    <OutputPath>bin\TEST_Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <DebugType>
+    </DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PowerCollections, Version=1.0.2141.24679, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.XML" />
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <BaseApplicationManifest Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Tripoli_TemporaryKey.pfx" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="source\DetailHistory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="source\earth_time_org\BariumPhosphateIC.cs" />
+    <Compile Include="source\earth_time_org\forms\frmBariumPhosphateICDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\earth_time_org\forms\frmBariumPhosphateICDetails.Designer.cs">
+      <DependentUpon>frmBariumPhosphateICDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\earth_time_org\forms\frmThalliumICDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\earth_time_org\forms\frmThalliumICDetails.Designer.cs">
+      <DependentUpon>frmThalliumICDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\earth_time_org\FractionMetaData.cs" />
+    <Compile Include="source\earth_time_org\SampleMetaData.cs" />
+    <Compile Include="source\earth_time_org\ThalliumIC.cs" />
+    <Compile Include="source\earth_time_org\DataDictionary.cs" />
+    <Compile Include="source\earth_time_org\forms\frmTracerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\earth_time_org\forms\frmTracerDetails.Designer.cs">
+      <DependentUpon>frmTracerDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\earth_time_org\MeasuredRatioModel.cs" />
+    <Compile Include="source\earth_time_org\Tracer.cs" />
+    <Compile Include="source\earth_time_org\UPbReduxFraction.cs" />
+    <Compile Include="source\earth_time_org\USampleComponents.cs" />
+    <Compile Include="source\earth_time_org\ValueModel.cs" />
+    <Compile Include="source\forms\frmRatioGraphLAICP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmBaPO2_Tl_IsotopicComposition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmBaPO2_Tl_IsotopicComposition.Designer.cs">
+      <DependentUpon>frmBaPO2_Tl_IsotopicComposition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\forms\frmWorkflowFolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmWorkflowFolder.Designer.cs">
+      <DependentUpon>frmWorkflowFolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\forms\fmrMainTripoli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmChauvenet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmChauvenet.Designer.cs">
+      <DependentUpon>frmChauvenet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\forms\frmSaveUPbFractionDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmGraphPageDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmHistoryGraph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmOxideCorrection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmOxideCorrection.Designer.cs">
+      <DependentUpon>frmOxideCorrection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\forms\frmRatioGraph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmSelectETOTracer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmSelectETOTracer.Designer.cs">
+      <DependentUpon>frmSelectETOTracer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\forms\frmSettingsGains.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmUSampleComponents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\frmUSampleComponents.Designer.cs">
+      <DependentUpon>frmUSampleComponents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\forms\TripoliControlPanelr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\forms\TripoliControlPanelr.Designer.cs">
+      <DependentUpon>TripoliControlPanelr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\forms\TripoliDisplayPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="source\GainsFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="source\RawRatio.cs" />
+    <Compile Include="source\TripoliLicense.cs" />
+    <Compile Include="source\TripoliRegistry.cs" />
+    <Compile Include="source\TripoliWorkProduct.cs" />
+    <Compile Include="source\utilities\TripoliUtilities.cs" />
+    <Compile Include="source\vendors_data\IonVantageLiveDataCyclesFolder.cs" />
+    <Compile Include="source\vendors_data\ThermoFinniganElement2DataFile.cs" />
+    <Compile Include="source\vendors_data\IDTIMS_ImportedCSVDataFile.cs" />
+    <Compile Include="source\vendors_data\NuPlasma.cs" />
+    <Compile Include="source\vendors_data\ThermoFinniganMat261.cs" />
+    <Compile Include="source\vendors_data\MassLynxDataFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="source\vendors_data\MassSpecDataFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="source\RunParameters.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="source\vendors_data\Sector54DataFile.cs" />
+    <Compile Include="source\SpecialFunction.cs" />
+    <Compile Include="source\StandardsFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="source\TripoliDetailFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="source\TripoliDetailHistory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="source\TripoliExcelFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="source\TripoliHistoryFolderGains.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="source\TripoliHistoryFolderStandards.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="source\vendors_data\ThermoFinniganTriton.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\earth_time_org\forms\frmBariumPhosphateICDetails.resx">
+      <DependentUpon>frmBariumPhosphateICDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\earth_time_org\forms\frmThalliumICDetails.resx">
+      <DependentUpon>frmThalliumICDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\earth_time_org\forms\frmTracerDetails.resx">
+      <DependentUpon>frmTracerDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmRatioGraphLAICP.resx">
+      <DependentUpon>frmRatioGraphLAICP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmBaPO2_Tl_IsotopicComposition.resx">
+      <DependentUpon>frmBaPO2_Tl_IsotopicComposition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmWorkflowFolder.resx">
+      <DependentUpon>frmWorkflowFolder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\fmrMainTripoli.resx">
+      <DependentUpon>fmrMainTripoli.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmChauvenet.resx">
+      <DependentUpon>frmChauvenet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmSaveUPbFractionDialogBox.resx">
+      <DependentUpon>frmSaveUPbFractionDialogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmGraphPageDisplay.resx">
+      <DependentUpon>frmGraphPageDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmHistoryGraph.resx">
+      <DependentUpon>frmHistoryGraph.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmOxideCorrection.resx">
+      <DependentUpon>frmOxideCorrection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmRatioGraph.resx">
+      <DependentUpon>frmRatioGraph.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmSelectETOTracer.resx">
+      <DependentUpon>frmSelectETOTracer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmSettingsGains.resx">
+      <DependentUpon>frmSettingsGains.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\frmUSampleComponents.resx">
+      <DependentUpon>frmUSampleComponents.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\TripoliControlPanelr.resx">
+      <DependentUpon>TripoliControlPanelr.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\forms\TripoliDisplayPanel.resx">
+      <DependentUpon>TripoliDisplayPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tripoli2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="xml\EarthTimeTracerHTML.xslt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\EarthTimeTracerTEXT.xslt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SampleTracer.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\Tracer-ET535-v1.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\Tracer-MIT1L-v1.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
