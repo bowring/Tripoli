@@ -3,3 +3,12 @@
 *.application
 *.exe
 *.LIC
+*.msi
+*.cache
+*.force
+*.manifest
+*.user
+obj/
+Tripoli-Installer/Release/
+[Dd]ebug*/
+[Rr]elease*/
