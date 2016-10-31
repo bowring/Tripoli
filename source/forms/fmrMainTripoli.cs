@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright 2004-2015 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -280,7 +280,6 @@ namespace Tripoli
         private MenuItem setLiveWorkflowDataFolder_menuItem;
         private MenuItem menuItem17;
         private MenuItem menuItemCredits;
-        private MenuItem LAICPMSData_menu;
         private MenuItem menuItem21;
         private MenuItem menuReadSector54DatFile;
         private MenuItem menuItem23;
@@ -293,10 +292,6 @@ namespace Tripoli
         private MenuItem menuTools;
         private MenuItem menuItemOpenIDTIMS_CSV_Template;
         private MenuItem menuItem16;
-        private MenuItem menuItem18;
-        private MenuItem menuItem19;
-        private MenuItem menuLAICPMSReadNuPlasmaTxtFile;
-        private MenuItem menuItemReadElement2DataFolder;
         private MenuItem menuItemApplyTracerToReCorrectFractions;
         private MenuItem menuItem14;
         private MenuItem menuItemReadIonVantageFolder;
@@ -495,11 +490,6 @@ namespace Tripoli
             this.menuItemReadGVGainsFolder = new System.Windows.Forms.MenuItem();
             this.menuItem27 = new System.Windows.Forms.MenuItem();
             this.menuItemReadStandardsFolder = new System.Windows.Forms.MenuItem();
-            this.LAICPMSData_menu = new System.Windows.Forms.MenuItem();
-            this.menuItem18 = new System.Windows.Forms.MenuItem();
-            this.menuItemReadElement2DataFolder = new System.Windows.Forms.MenuItem();
-            this.menuItem19 = new System.Windows.Forms.MenuItem();
-            this.menuLAICPMSReadNuPlasmaTxtFile = new System.Windows.Forms.MenuItem();
             this.menuSettings = new System.Windows.Forms.MenuItem();
             this.menuItemChauvenet = new System.Windows.Forms.MenuItem();
             this.menuItemUSampleComponents = new System.Windows.Forms.MenuItem();
@@ -552,6 +542,7 @@ namespace Tripoli
             this.menuItemETOWebSite = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItemDataDictionary = new System.Windows.Forms.MenuItem();
+            this.CIRDLESonGitHubMenuItem = new System.Windows.Forms.MenuItem();
             this.menuHelp = new System.Windows.Forms.MenuItem();
             this.menuItemHelpText = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
@@ -612,7 +603,6 @@ namespace Tripoli
             this.lblAppliedTracer = new System.Windows.Forms.Label();
             this.lblActiveTracer = new System.Windows.Forms.Label();
             this.timerForLiveUpdate = new System.Windows.Forms.Timer(this.components);
-            this.CIRDLESonGitHubMenuItem = new System.Windows.Forms.MenuItem();
             this.ButtonPanelRatios.SuspendLayout();
             this.pnlAnnotate.SuspendLayout();
             this.pnlIntro.SuspendLayout();
@@ -629,7 +619,6 @@ namespace Tripoli
             this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuWorkFile,
             this.menuDataFile,
-            this.LAICPMSData_menu,
             this.menuSettings,
             this.menuCorrections,
             this.menuAnnotate,
@@ -898,46 +887,9 @@ namespace Tripoli
             this.menuItemReadStandardsFolder.Text = "Read Folder of Tripolized Standards";
             this.menuItemReadStandardsFolder.Click += new System.EventHandler(this.menuReadStandardsFolder_Click);
             // 
-            // LAICPMSData_menu
-            // 
-            this.LAICPMSData_menu.Enabled = false;
-            this.LAICPMSData_menu.Index = 2;
-            this.LAICPMSData_menu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem18,
-            this.menuItem19});
-            this.LAICPMSData_menu.Text = "LA-ICP MS Data";
-            this.LAICPMSData_menu.Visible = false;
-            this.LAICPMSData_menu.Click += new System.EventHandler(this.menuItem20_Click);
-            // 
-            // menuItem18
-            // 
-            this.menuItem18.Index = 0;
-            this.menuItem18.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItemReadElement2DataFolder});
-            this.menuItem18.Text = "Single-Collector";
-            // 
-            // menuItemReadElement2DataFolder
-            // 
-            this.menuItemReadElement2DataFolder.Index = 0;
-            this.menuItemReadElement2DataFolder.Text = "Read Element2 Data Folder";
-            this.menuItemReadElement2DataFolder.Click += new System.EventHandler(this.menuItemReadElement2DataFolder_Click);
-            // 
-            // menuItem19
-            // 
-            this.menuItem19.Index = 1;
-            this.menuItem19.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuLAICPMSReadNuPlasmaTxtFile});
-            this.menuItem19.Text = "Multi-Collector";
-            // 
-            // menuLAICPMSReadNuPlasmaTxtFile
-            // 
-            this.menuLAICPMSReadNuPlasmaTxtFile.Index = 0;
-            this.menuLAICPMSReadNuPlasmaTxtFile.Text = "Experimental Read Nu Plasma \'.txt\' Data File";
-            this.menuLAICPMSReadNuPlasmaTxtFile.Click += new System.EventHandler(this.menuReadNuPlasmaTxtFile_Click);
-            // 
             // menuSettings
             // 
-            this.menuSettings.Index = 3;
+            this.menuSettings.Index = 2;
             this.menuSettings.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemChauvenet,
             this.menuItemUSampleComponents,
@@ -973,7 +925,7 @@ namespace Tripoli
             // 
             // menuCorrections
             // 
-            this.menuCorrections.Index = 4;
+            this.menuCorrections.Index = 3;
             this.menuCorrections.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuTracer,
             this.menuBaPO2IC,
@@ -1165,13 +1117,13 @@ namespace Tripoli
             // menuAnnotate
             // 
             this.menuAnnotate.Enabled = false;
-            this.menuAnnotate.Index = 5;
+            this.menuAnnotate.Index = 4;
             this.menuAnnotate.Text = "Annotate";
             this.menuAnnotate.Click += new System.EventHandler(this.menuItem9_Click_2);
             // 
             // menuControlPanel
             // 
-            this.menuControlPanel.Index = 6;
+            this.menuControlPanel.Index = 5;
             this.menuControlPanel.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemLaunchKwikiExporter,
             this.menuItem15,
@@ -1216,8 +1168,8 @@ namespace Tripoli
             // saveTripAndExportToRedux_menuItem
             // 
             this.saveTripAndExportToRedux_menuItem.Index = 4;
-            this.saveTripAndExportToRedux_menuItem.Tag = "Save work and export for U-Pb_Redux";
-            this.saveTripAndExportToRedux_menuItem.Text = "Save work and export for U-Pb_Redux";
+            this.saveTripAndExportToRedux_menuItem.Tag = "Save work and export for ET_Redux";
+            this.saveTripAndExportToRedux_menuItem.Text = "Save work and export for ET_Redux";
             this.saveTripAndExportToRedux_menuItem.Click += new System.EventHandler(this.menuExportToUPbRedux_Click);
             // 
             // menuItem12
@@ -1250,7 +1202,7 @@ namespace Tripoli
             // 
             // menuResources
             // 
-            this.menuResources.Index = 7;
+            this.menuResources.Index = 6;
             this.menuResources.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuTools,
             this.menuItem16,
@@ -1297,9 +1249,15 @@ namespace Tripoli
             this.menuItemDataDictionary.Visible = false;
             this.menuItemDataDictionary.Click += new System.EventHandler(this.menuItemDataDictionary_Click);
             // 
+            // CIRDLESonGitHubMenuItem
+            // 
+            this.CIRDLESonGitHubMenuItem.Index = 5;
+            this.CIRDLESonGitHubMenuItem.Text = "CIRDLES on GitHub.com";
+            this.CIRDLESonGitHubMenuItem.Click += new System.EventHandler(this.CIRDLESonGitHubMenuItem_Click);
+            // 
             // menuHelp
             // 
-            this.menuHelp.Index = 8;
+            this.menuHelp.Index = 7;
             this.menuHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemHelpText,
             this.menuItem4,
@@ -1370,7 +1328,7 @@ namespace Tripoli
             this.ButtonPanelRatios.Controls.Add(this.btnSelectAll);
             this.ButtonPanelRatios.Controls.Add(this.btnShowChecked);
             this.ButtonPanelRatios.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ButtonPanelRatios.Location = new System.Drawing.Point(0, 294);
+            this.ButtonPanelRatios.Location = new System.Drawing.Point(0, 274);
             this.ButtonPanelRatios.Name = "ButtonPanelRatios";
             this.ButtonPanelRatios.Size = new System.Drawing.Size(688, 36);
             this.ButtonPanelRatios.TabIndex = 5;
@@ -1518,15 +1476,15 @@ namespace Tripoli
             this.pnlIntro.Controls.Add(this.pictureBox1);
             this.pnlIntro.Location = new System.Drawing.Point(62, 74);
             this.pnlIntro.Name = "pnlIntro";
-            this.pnlIntro.Size = new System.Drawing.Size(564, 192);
+            this.pnlIntro.Size = new System.Drawing.Size(564, 172);
             this.pnlIntro.TabIndex = 10;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(508, 1);
+            this.pictureBox2.Location = new System.Drawing.Point(490, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox2.Size = new System.Drawing.Size(67, 55);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
@@ -1535,11 +1493,11 @@ namespace Tripoli
             // 
             this.label1.Font = new System.Drawing.Font("Arial", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.IndianRed;
-            this.label1.Location = new System.Drawing.Point(194, 12);
+            this.label1.Location = new System.Drawing.Point(175, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(289, 23);
             this.label1.TabIndex = 9;
-            this.label1.Text = ">>>  preparing data for U-Pb_Redux >>> ";
+            this.label1.Text = ">>>  preparing data for ET_Redux >>> ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label3
@@ -1579,7 +1537,7 @@ namespace Tripoli
             // lblTripoliWithVersion
             // 
             this.lblTripoliWithVersion.Font = new System.Drawing.Font("Arial Black", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTripoliWithVersion.Location = new System.Drawing.Point(56, 12);
+            this.lblTripoliWithVersion.Location = new System.Drawing.Point(56, 16);
             this.lblTripoliWithVersion.Margin = new System.Windows.Forms.Padding(0);
             this.lblTripoliWithVersion.Name = "lblTripoliWithVersion";
             this.lblTripoliWithVersion.Size = new System.Drawing.Size(133, 23);
@@ -1590,7 +1548,7 @@ namespace Tripoli
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(1, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(48, 48);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1610,7 +1568,7 @@ namespace Tripoli
             this.ButtonPanelHistory.Controls.Add(this.btnSelectAllFiles);
             this.ButtonPanelHistory.Controls.Add(this.btnSaveHistory);
             this.ButtonPanelHistory.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ButtonPanelHistory.Location = new System.Drawing.Point(-1, 260);
+            this.ButtonPanelHistory.Location = new System.Drawing.Point(-1, 240);
             this.ButtonPanelHistory.Name = "ButtonPanelHistory";
             this.ButtonPanelHistory.Size = new System.Drawing.Size(688, 36);
             this.ButtonPanelHistory.TabIndex = 11;
@@ -1712,7 +1670,7 @@ namespace Tripoli
             this.buttonPanelCollectors.Controls.Add(this.btnSelectNoneCollectors);
             this.buttonPanelCollectors.Controls.Add(this.btnSelectAllCollectors);
             this.buttonPanelCollectors.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonPanelCollectors.Location = new System.Drawing.Point(0, 223);
+            this.buttonPanelCollectors.Location = new System.Drawing.Point(0, 203);
             this.buttonPanelCollectors.Name = "buttonPanelCollectors";
             this.buttonPanelCollectors.Size = new System.Drawing.Size(688, 36);
             this.buttonPanelCollectors.TabIndex = 12;
@@ -1799,7 +1757,7 @@ namespace Tripoli
             this.statusBar1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusBar1.Location = new System.Drawing.Point(0, 325);
+            this.statusBar1.Location = new System.Drawing.Point(0, 305);
             this.statusBar1.Name = "statusBar1";
             this.statusBar1.Size = new System.Drawing.Size(688, 22);
             this.statusBar1.TabIndex = 15;
@@ -1986,18 +1944,12 @@ namespace Tripoli
             this.lblActiveTracer.Text = "Active Tracer:  ";
             this.lblActiveTracer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // CIRDLESonGitHubMenuItem
-            // 
-            this.CIRDLESonGitHubMenuItem.Index = 5;
-            this.CIRDLESonGitHubMenuItem.Text = "CIRDLES on GitHub.com";
-            this.CIRDLESonGitHubMenuItem.Click += new System.EventHandler(this.CIRDLESonGitHubMenuItem_Click);
-            // 
             // frmMainTripoli
             // 
             this.AllowDrop = true;
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.BackColor = System.Drawing.Color.Linen;
-            this.ClientSize = new System.Drawing.Size(688, 347);
+            this.ClientSize = new System.Drawing.Size(688, 327);
             this.Controls.Add(this.panelCorrections);
             this.Controls.Add(this.statusBar1);
             this.Controls.Add(this.buttonPanelCollectors);
@@ -5225,7 +5177,7 @@ namespace Tripoli
                                         {
                                             MessageBox.Show("The meta-data for sample " + sampleName //
                                                 + "\ndoes not include fraction " + fractionID //
-                                                + "\n\nPlease use U-Pb_Redux to update the meta-data or turn off Live Mode.",
+                                                + "\n\nPlease use ET_Redux to update the meta-data or turn off Live Mode.",
                                                 "Tripoli Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                         }
                                     }
@@ -5286,7 +5238,7 @@ namespace Tripoli
                                     MessageBox.Show("Tripoli is in LiveWorkflow and reports that "
                                             + "\nthe meta-data for sample " + sampleName //
                                             + " \ndoes not exist in the current SampleMetaData folder." //
-                                            + "\n\nPlease use U-Pb_Redux to create the meta-data.",
+                                            + "\n\nPlease use ET_Redux to create the meta-data.",
                                             "Tripoli Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
                             }

@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright 2004-2015 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ namespace Tripoli
             myTripoli.startStopLiveWorkflow_menuItem.Enabled = startStopLiveWorkflow_button.Enabled;
             toolTip1.SetToolTip(startStopLiveWorkflow_button, //
                 "Starting Live Workflow causes Tripoli to automatically load the newest data file and to save the Tripoli Workfile (.trip).  "//
-                 + "\n\nIf matching U-Pb_Redux - generated Sample metadata is present, then Tripoli automatically exports the XML file to the specified location.");
+                 + "\n\nIf matching ET_Redux - generated Sample metadata is present, then Tripoli automatically exports the XML file to the specified location.");
             toolTip1.ShowAlways = true;
 
             // first pass find and display newest live workflow filename
@@ -243,7 +243,7 @@ namespace Tripoli
                                     if (currentLiveWorkflowDataFolder.Exists)
                                     {
                                         // process the files
-                                        // since Tripoli is being moved to U-Pb_Redux and java, we will merely fake out the live workflow mechanism
+                                        // since Tripoli is being moved to ET_Redux and java, we will merely fake out the live workflow mechanism
                                         // by sending the newest cycle file and having its containing folder processed
                                         FileInfo[] files = currentLiveWorkflowDataFolder.GetFiles("*" + ".txt", SearchOption.TopDirectoryOnly);
                                         Array.Sort<FileInfo>(files, new Comparison<FileInfo>(delegate(FileInfo f1, FileInfo f2)

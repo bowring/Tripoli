@@ -1,5 +1,5 @@
 ﻿/****************************************************************************
- * Copyright 2004-2015 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ namespace Tripoli.earth_time_org
 
         private string _fractionXMLUPbReduxFileName_U;
 
-        public string fractionXMLUPbReduxFileName__U // double underscore handles quirk of xstream in U-Pb_Redux
+        public string fractionXMLUPbReduxFileName__U // double underscore handles quirk of xstream in ET_Redux
         {
             get { return _fractionXMLUPbReduxFileName_U; }
             set { _fractionXMLUPbReduxFileName_U = value; }
@@ -48,7 +48,7 @@ namespace Tripoli.earth_time_org
 
         private string _fractionXMLUPbReduxFileName_Pb;
 
-        public string fractionXMLUPbReduxFileName__Pb // double underscore handles quirk of xstream in U-Pb_Redux
+        public string fractionXMLUPbReduxFileName__Pb // double underscore handles quirk of xstream in ET_Redux
         {
             get { return _fractionXMLUPbReduxFileName_Pb; }
             set { _fractionXMLUPbReduxFileName_Pb = value; }

@@ -90,7 +90,7 @@ namespace Tripoli.source.forms
                     ////////}
                     ////////else
                     ////////{
-                    ////////    sampleMetaDataExists_label.Text = "Parent directory does NOT contain a SampleMetaData folder, so no data will be exported to U-Pb_Redux.";
+                    ////////    sampleMetaDataExists_label.Text = "Parent directory does NOT contain a SampleMetaData folder, so no data will be exported to ET_Redux.";
                     ////////    sampleMetaDataExists_label.ForeColor = Color.Red;
                     ////////}
 

@@ -130,11 +130,11 @@
       Live Workflow data folder, otherwise Tripoli prompts for a location.
 
 Tripoli provides 2 modes of Live Workflow:
-          1.  Managed Live Workflow:  When you use  U-Pb_Redux to manage your workflow, it writes a folder named 
-               "SampleMetaData" that tells Tripoli  where to automatically export data for U-Pb_Redux.  
+          1.  Managed Live Workflow:  When you use  ET_Redux to manage your workflow, it writes a folder named 
+               "SampleMetaData" that tells Tripoli  where to automatically export data for ET_Redux.  
                 Use the "Set" button below to specify the location of the SampleMetaData folder.       
         
-          2.  Simple Live Workflow:  Tripoli does not automatically export data for U-Pb_Redux.  To use this mode, check
+          2.  Simple Live Workflow:  Tripoli does not automatically export data for ET_Redux.  To use this mode, check
                 the option "Simple Live Workflow: ignore SampleMetaData".
   </value>
   </data>

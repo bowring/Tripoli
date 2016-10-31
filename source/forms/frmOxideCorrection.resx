@@ -120,6 +120,6 @@
   <data name="lblOxideExplain.Text" xml:space="preserve">
     <value>Note: To repeat the oxide correction with a new value for r18O_16O, change the default value above, click OK and then re-import the datafile. 
 
-Alternatively, you can change the value of 18O/16O in U-Pb_Redux used for each fraction and U-Pb_Redux will remove this correction and apply the new one.</value>
+Alternatively, you can change the value of 18O/16O in ET_Redux used for each fraction and ET_Redux will remove this correction and apply the new one.</value>
   </data>
 </root>
