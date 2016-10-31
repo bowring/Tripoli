@@ -1502,11 +1502,11 @@ namespace Tripoli
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.LightSalmon;
-            this.label3.Location = new System.Drawing.Point(153, 96);
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(121, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(293, 14);
+            this.label3.Size = new System.Drawing.Size(329, 14);
             this.label3.TabIndex = 8;
             this.label3.Text = "Tripoli is licensed as open-source software: click on About.\r\n";
             // 

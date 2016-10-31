@@ -124,13 +124,13 @@
         "Entry"
         {
         "MsmKey" = "8:_F007C129AF604E4A8ACDFB78B284841A"
-        "OwnerKey" = "8:_3FA7EBA5605B1462176FCF03256C3B5E"
+        "OwnerKey" = "8:_DDF08BE63BEF458597C30A17C184E891"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_F007C129AF604E4A8ACDFB78B284841A"
-        "OwnerKey" = "8:_DDF08BE63BEF458597C30A17C184E891"
+        "OwnerKey" = "8:_3FA7EBA5605B1462176FCF03256C3B5E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -148,19 +148,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3FA7EBA5605B1462176FCF03256C3B5E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_02EE1E719993132F647A5478F84E7AB1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2C7097541F1C25FB7776693D3AADD77F"
+        "OwnerKey" = "8:_F007C129AF604E4A8ACDFB78B284841A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -172,7 +160,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F007C129AF604E4A8ACDFB78B284841A"
+        "OwnerKey" = "8:_2C7097541F1C25FB7776693D3AADD77F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_02EE1E719993132F647A5478F84E7AB1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3FA7EBA5605B1462176FCF03256C3B5E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -381,11 +381,6 @@
             "AssemblyAsmDisplayName" = "8:PowerCollections, Version=1.0.2141.24679, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2C7097541F1C25FB7776693D3AADD77F"
-                    {
-                    "Name" = "8:PowerCollections.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:PowerCollections.dll"
             "TargetName" = "8:"
@@ -412,11 +407,6 @@
             "AssemblyAsmDisplayName" = "8:Interop.Microsoft.Office.Core, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2F8CB442C569CD822EA5DC15DB1BC0D7"
-                    {
-                    "Name" = "8:Interop.Microsoft.Office.Core.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Interop.Microsoft.Office.Core.dll"
             "TargetName" = "8:"
@@ -861,15 +851,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Tripoli"
-        "ProductCode" = "8:{9A1653B5-76AF-48E8-AC2C-47F1152235C4}"
-        "PackageCode" = "8:{CFB8B529-9F53-4668-9C0E-0C196BACDB68}"
+        "ProductCode" = "8:{3C5484C0-3080-42B5-9210-9B2D45ADA1D2}"
+        "PackageCode" = "8:{5E1D098D-3CD6-454B-9D98-57AAC8A21A48}"
         "UpgradeCode" = "8:{523FD083-CBAF-4DF5-BE7E-A8841C1AC28D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:4.9.0.0"
+        "ProductVersion" = "8:4.9.00"
         "Manufacturer" = "8:Sunchex Systems"
         "ARPHELPTELEPHONE" = "8:843-608-1399 (voice or sms)"
         "ARPHELPLINK" = "8:https://cirdles.org"
@@ -2121,7 +2111,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DDF08BE63BEF458597C30A17C184E891"
             {
-            "SourcePath" = "8:..\\obj\\Debug\\Tripoli.exe"
+            "SourcePath" = "8:..\\obj\\Release\\Tripoli.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
