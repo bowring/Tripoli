@@ -24,8 +24,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Graphical Data Processor for Mass Spectrometry")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CIRDLES.org")]
-[assembly: AssemblyProduct("Tripoli 4.8")]
-[assembly: AssemblyCopyright("James F. Bowring 2004-2015")]
+[assembly: AssemblyProduct("Tripoli 4.9")]
+[assembly: AssemblyCopyright("James F. Bowring 2004-2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

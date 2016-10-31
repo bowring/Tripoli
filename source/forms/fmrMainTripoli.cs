@@ -1542,7 +1542,7 @@ namespace Tripoli
             this.lblTripoliWithVersion.Name = "lblTripoliWithVersion";
             this.lblTripoliWithVersion.Size = new System.Drawing.Size(133, 23);
             this.lblTripoliWithVersion.TabIndex = 4;
-            this.lblTripoliWithVersion.Text = "Tripoli  4.8";
+            this.lblTripoliWithVersion.Text = "Tripoli  4.9";
             this.lblTripoliWithVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox1
