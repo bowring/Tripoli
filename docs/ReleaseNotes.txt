@@ -1,3 +1,14 @@
+12.November.2016: Release 4.9.0.1
+         Thanks: Matt Rioux has reported some bugs and quirks that are fixed in this release.
+		 Bug: LiveWorkFlow now works again.  The issue was the migration of schema to 
+		          https://github.com/EARTHTIME/Schema in 2015 and a failure on my part
+				  to fully update Tripoli. Please inform me of issues when you experience
+				  them, and send money if you can, as we are working on fumes.
+		 Info: For LiveWorkFlow, data columns (ratios, etc.) must have unique names or
+		          Tripoli gets confused when saving and updating.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 05.April.2015: Release 4.8.0.3
          Bug: Updated Mat 262 .txt file reading to handle poorly-formed files.
 28.March.2015: Release 4.8.0.2
