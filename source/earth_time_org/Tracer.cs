@@ -39,11 +39,11 @@ namespace Tripoli.earth_time_org
     /// </summary>
     [Serializable]
     [XmlRootAttribute("Tracer",
-        Namespace = "http://www.earth-time.org",
+        Namespace = "https://raw.githubusercontent.com/EARTHTIME/Schema",
+        DataType = "Tracer",
         IsNullable = true)]
     public class Tracer : ISerializable
     {
-
         private static string schemaName = "TracerXMLSchema.xsd";
         // NOTE: underscored names are used so that lower-case properties can be used 
         // for xml serialization
@@ -59,7 +59,9 @@ namespace Tripoli.earth_time_org
         private ValueModel[] _isotopeConcentrations;
 
         // Constructors
-
+        /// <summary>
+        /// 
+        /// </summary>
         public Tracer()
         {
             tracerName = "Empty Tracer";
@@ -179,9 +181,9 @@ namespace Tripoli.earth_time_org
             contents.RemoveAt(1);
             contents.Insert(1, temp[0] + "xmlns" + temp[1]);
             contents.Insert(2, "        xmlns" + temp[2]);
-            contents.Insert(3, "        xmlns=\"http://www.earth-time.org\"");
-            contents.Insert(4, "        xsi:schemaLocation=\"http://www.earth-time.org");
-            contents.Insert(5, "                            " + getTracerSchemaURI() + "\">"); //http://www.earth-time.org/projects/upb/public_data/XSD/TracerXMLSchema.xsd\">");
+            contents.Insert(3, "        xmlns=\"https://raw.githubusercontent.com/EARTHTIME/Schema\"");
+            contents.Insert(4, "        xsi:schemaLocation=\"https://raw.githubusercontent.com/EARTHTIME/Schema");
+            contents.Insert(5, "                            " + getTracerSchemaURI() + "\">"); 
 
             // write it back out
             StreamWriter sw = File.CreateText(filename);
@@ -195,9 +197,8 @@ namespace Tripoli.earth_time_org
         public string getTracerSchemaURI()
         {
             return
-                ConfigurationManager.AppSettings["EarthTimeOrgCurrentURL"]
-                + ConfigurationManager.AppSettings["EarthTimeOrgCurrentDirectoryForXSD"]
-                + schemaName;//"TracerXMLSchema.xsd";
+                ConfigurationManager.AppSettings["EarthTimeOrgCurrentDirectoryForXSD"]
+                + schemaName;
         }
 
         public Tripoli.earth_time_org.Tracer ReadTracer(string filename)
@@ -256,11 +257,12 @@ namespace Tripoli.earth_time_org
             ////////}
 
             XmlReader reader;
-
+            FileStream fs = null;
 
             try
             {
-                if (filename.StartsWith("http://"))
+                
+                if (filename.StartsWith("http"))
                 {
                     // Create the XmlReader object.
                     reader = XmlReader.Create(TripoliUtilities.getWebStream(filename), settings);
@@ -268,7 +270,7 @@ namespace Tripoli.earth_time_org
                 else
                 {
                     // A FileStream is needed to read the XML document.
-                    FileStream fs = new FileStream(filename, FileMode.Open);
+                    fs = new FileStream(filename, FileMode.Open);
 
                     // Create the XmlReader object.
                     reader = XmlReader.Create(fs, settings);
@@ -284,7 +286,13 @@ namespace Tripoli.earth_time_org
                     + " does not exist.");
             }
 
-            return (Tracer)serializer.Deserialize(reader);
+            Tracer retVal = (Tracer)serializer.Deserialize(reader);
+            if (fs != null)
+            {
+                fs.Close();
+            }
+            reader.Close();
+            return retVal;
 
         }
 

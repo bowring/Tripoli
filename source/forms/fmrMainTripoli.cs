@@ -5411,8 +5411,7 @@ namespace Tripoli
                 if (!selFile.cancel)
                 {
                     PrepareTripoliTracer(
-                                    earthTimeOrgCurrentURL
-                                    + earthTimeOrgCurrentDirectoryForTracerXML
+                                    earthTimeOrgCurrentDirectoryForTracerXML
                                     + myTracerList[selFile.selectedIndex]);
                 }
             }
@@ -5456,7 +5455,9 @@ namespace Tripoli
                 {
                     DisplayCycleSelections();
                 }
-                catch { }
+                catch (Exception ee ){
+                    Debug.Print(ee.Message);
+                }
 
             }
             catch (Exception eFile)

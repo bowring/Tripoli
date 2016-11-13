@@ -127,28 +127,28 @@ namespace Tripoli.vendors_data
         }
 
         public override TripoliWorkProduct LoadRatios()
-		{
-			// set up array to return rawratios
-			TripoliWorkProduct retval = new TripoliWorkProduct();
+        {
+            // set up array to return rawratios
+            TripoliWorkProduct retval = new TripoliWorkProduct();
 
-			// get the collection of sheets in the workbook
-			Excel.Sheets sheets = theWorkbook.Worksheets;
+            // get the collection of sheets in the workbook
+            Excel.Sheets sheets = theWorkbook.Worksheets;
 
-			// get the CTRL and CYCLES worksheet from the collection
-			// if fails - this is bad file
-			Excel._Worksheet CYCLEsheet;
-			Excel._Worksheet CTRLsheet;
+            // get the CTRL and CYCLES worksheet from the collection
+            // if fails - this is bad file
+            Excel._Worksheet CYCLEsheet;
+            Excel._Worksheet CTRLsheet;
 
-			try 
-			{
-				CYCLEsheet = (Excel._Worksheet)sheets["CYCLE"];
-				CTRLsheet = (Excel._Worksheet)sheets["CTRL"];
-			}
-			catch(Exception eExcel)
-			{
-					return null;
-			}
-				
+            try
+            {
+                CYCLEsheet = (Excel._Worksheet)sheets["CYCLE"];
+                CTRLsheet = (Excel._Worksheet)sheets["CTRL"];
+            }
+            catch (Exception eExcel)
+            {
+                return null;
+            }
+
             // get the start time
             Excel.Range range = CTRLsheet.get_Range("ILV_StartTime", "ILV_StartTime");
             retval.TimeStamp = Convert.ToDateTime(range.Cells.Value2);
@@ -189,10 +189,11 @@ namespace Tripoli.vendors_data
                 {
                     retval.RatioType = "Pb";
                 }
-                if (sampleName.Contains("U"))
-                {
-                    retval.RatioType = "U";
-                }
+                else
+                    if (sampleName.Contains("U"))
+                    {
+                        retval.RatioType = "U";
+                    }
             }
             else
             {
@@ -201,7 +202,7 @@ namespace Tripoli.vendors_data
                 retval.RatioType = "";
 
                 System.Windows.Forms.MessageBox.Show("Please enter \"[SampleName] [FractionName] [U  or Pb]\" (without brackets)\n\n" //
-                    + " into the Sample Name cell  D8 and then re-import the Excel file." );
+                    + " into the Sample Name cell  D8 and then re-import the Excel file.");
 
             }
 
@@ -219,47 +220,48 @@ namespace Tripoli.vendors_data
             }
 
 
-			// get number of functions
-			range = CTRLsheet.get_Range("ILV_NoFunctions", "ILV_NoFunctions");
-			int FunctionCount = Convert.ToInt16(range.Cells.Value2) ;
+            // get number of functions
+            range = CTRLsheet.get_Range("ILV_NoFunctions", "ILV_NoFunctions");
+            int FunctionCount = Convert.ToInt16(range.Cells.Value2);
 
-			// get number of USER functions
-			range = CTRLsheet.get_Range("ILV_NoUserFunctions", "ILV_NoUserFunctions");
-			int UserFunctionCount = Convert.ToInt16(range.Cells.Value2) ;
+            // get number of USER functions
+            range = CTRLsheet.get_Range("ILV_NoUserFunctions", "ILV_NoUserFunctions");
+            int UserFunctionCount = Convert.ToInt16(range.Cells.Value2);
 
-			// get number of cycles per block
-			range = CTRLsheet.get_Range("ILV_CyclesPerBlk", "ILV_CyclesPerBlk");
-			int CyclesPerBlock = Convert.ToInt16(range.Cells.Value2) ;
+            // get number of cycles per block
+            range = CTRLsheet.get_Range("ILV_CyclesPerBlk", "ILV_CyclesPerBlk");
+            int CyclesPerBlock = Convert.ToInt16(range.Cells.Value2);
 
             // July 2011 modification to change cycles/block by 1 if beam interpolation is true
             // discovered discrepancy in implementing the IonVantage livedata folder
             range = CTRLsheet.get_Range("ILV_ApplyBeamInterp", "ILV_ApplyBeamInterp");
             string beamInterpApplied = Convert.ToString(range.Cells.Value2);
-            if (beamInterpApplied.ToUpper().Trim().Equals("TRUE")){
-                CyclesPerBlock ++;
+            if (beamInterpApplied.ToUpper().Trim().Equals("TRUE"))
+            {
+                CyclesPerBlock++;
             }
 
-			// get number of rows ie ratios
-			range = CTRLsheet.get_Range("ILV_Ratios", "ILV_Ratios");
-			int RatioCount = Convert.ToInt16(range.Cells.Value2) ;
+            // get number of rows ie ratios
+            range = CTRLsheet.get_Range("ILV_Ratios", "ILV_Ratios");
+            int RatioCount = Convert.ToInt16(range.Cells.Value2);
 
-			// get the starting point of the cycle data
-			range = CYCLEsheet.get_Range("CD_Origin", "CD_Origin" );
-			int startCol = range.Column;
-			int startRow = range.Row;
+            // get the starting point of the cycle data
+            range = CYCLEsheet.get_Range("CD_Origin", "CD_Origin");
+            int startCol = range.Column;
+            int startRow = range.Row;
 
-			// get the location of the first function name
-			range = CYCLEsheet.get_Range("CD_FunctionNamesDefault", "CD_FunctionNamesDefault" );
-			int startFuncNameCol = range.Column;
-			int FuncNameRow = range.Row;
+            // get the location of the first function name
+            range = CYCLEsheet.get_Range("CD_FunctionNamesDefault", "CD_FunctionNamesDefault");
+            int startFuncNameCol = range.Column;
+            int FuncNameRow = range.Row;
 
             int numberOfBlocks = 0;
 
-			for (int col = 0; col < FunctionCount ; col++)
-			{
-				range = (Excel.Range)CYCLEsheet.Cells[ FuncNameRow, ( col + startFuncNameCol ) ];
-				// get name of function
-				string FuncName = Convert.ToString(range.Cells.Value2);
+            for (int col = 0; col < FunctionCount; col++)
+            {
+                range = (Excel.Range)CYCLEsheet.Cells[FuncNameRow, (col + startFuncNameCol)];
+                // get name of function
+                string FuncName = Convert.ToString(range.Cells.Value2);
 
                 // feb 2010
                 if (retval.RatioType.Equals(""))
@@ -274,15 +276,15 @@ namespace Tripoli.vendors_data
                     }
                 }
 
-				// define range of ratios in the spreadsheet
-				range = CYCLEsheet.get_Range(
-					CYCLEsheet.Cells[startRow, col + startFuncNameCol], 
-					CYCLEsheet.Cells[startRow + RatioCount - 1, col + startFuncNameCol]);
+                // define range of ratios in the spreadsheet
+                range = CYCLEsheet.get_Range(
+                    CYCLEsheet.Cells[startRow, col + startFuncNameCol],
+                    CYCLEsheet.Cells[startRow + RatioCount - 1, col + startFuncNameCol]);
 
-				// extract the ratios for this function
-				Array FunctionValues = (Array)range.Cells.Value2;
+                // extract the ratios for this function
+                Array FunctionValues = (Array)range.Cells.Value2;
 
-				// populate a double [] with these ratios
+                // populate a double [] with these ratios
                 // july 2011 calculate the number of blocks and make the data array size be numberOfBlocks X cyclesPerBlock
                 // so Tripoli can show missing values at end if they exist
 
@@ -291,38 +293,38 @@ namespace Tripoli.vendors_data
                     numberOfBlocks = (int)Math.Ceiling((double)FunctionValues.GetLength(0) / (double)CyclesPerBlock);
                 }
 
-				double[] tempRatios = new double[ numberOfBlocks * CyclesPerBlock];//                              FunctionValues.GetLength(0)];
-				for (int row = 1; row <= FunctionValues.GetLength(0); row++)
-				{
-					// shift indexes to standard 0-based array
+                double[] tempRatios = new double[numberOfBlocks * CyclesPerBlock];//                              FunctionValues.GetLength(0)];
+                for (int row = 1; row <= FunctionValues.GetLength(0); row++)
+                {
+                    // shift indexes to standard 0-based array
                     tempRatios[row - 1] = Convert.ToDouble(FunctionValues.GetValue(row, 1));
-					// June 2005 then check for negative values due to string '#NUM!' in excel
-					if (tempRatios[row - 1] < 0)
-						tempRatios[row - 1] = 0;
+                    // June 2005 then check for negative values due to string '#NUM!' in excel
+                    if (tempRatios[row - 1] < 0)
+                        tempRatios[row - 1] = 0;
 
-				}
+                }
 
-				// create a new RawRatio object to return
-				RawRatio myRR = new RawRatio(FuncName, tempRatios);
-				// check if user function - these are always last - and label
-				if (col > (FunctionCount - UserFunctionCount - 1)) // -1 adjusts for 0-based
-					myRR.IsUserFunction = true;
-				else
-					myRR.IsUserFunction = false;
+                // create a new RawRatio object to return
+                RawRatio myRR = new RawRatio(FuncName, tempRatios);
+                // check if user function - these are always last - and label
+                if (col > (FunctionCount - UserFunctionCount - 1)) // -1 adjusts for 0-based
+                    myRR.IsUserFunction = true;
+                else
+                    myRR.IsUserFunction = false;
 
-				myRR.CyclesPerBlock = CyclesPerBlock;
-				
+                myRR.CyclesPerBlock = CyclesPerBlock;
 
-				retval.Add(myRR);
-					
-			}
-			System.Runtime.InteropServices.Marshal.ReleaseComObject (sheets);
-			sheets = null;
-			System.Runtime.InteropServices.Marshal.ReleaseComObject (range);
-			range = null;
 
-			return retval;
-		}
+                retval.Add(myRR);
+
+            }
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(sheets);
+            sheets = null;
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(range);
+            range = null;
+
+            return retval;
+        }
 
         public override void close()
         {
