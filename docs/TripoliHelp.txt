@@ -1,3 +1,9 @@
+Tripoli v. 4.10.0.0 (April 2021)
+Copyright 2004-2021 James F. Bowring
+
+News: This document is obviously out of date.  This version adds support for IsotopX PhoeniX TIMSDP files.
+
+
 Tripoli v. 4.6  (March 2010)
 
 Copyright 2004-2010 James F. Bowring

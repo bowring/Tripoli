@@ -299,6 +299,7 @@ namespace Tripoli
         private MenuItem menuItemAppendIonVantageFolder;
         private MenuItem version47ReleaseNotesMenuItem;
         private MenuItem CIRDLESonGitHubMenuItem;
+        private MenuItem menuReadIsotopXPhoeniX_TIMSDP;
         private System.ComponentModel.IContainer components;
         #endregion System Fields
 
@@ -479,6 +480,7 @@ namespace Tripoli
             this.menuItemExitTripoli = new System.Windows.Forms.MenuItem();
             this.menuDataFile = new System.Windows.Forms.MenuItem();
             this.menuItem21 = new System.Windows.Forms.MenuItem();
+            this.menuReadIsotopXPhoeniX_TIMSDP = new System.Windows.Forms.MenuItem();
             this.menuReadSector54DatFile = new System.Windows.Forms.MenuItem();
             this.menuItem23 = new System.Windows.Forms.MenuItem();
             this.menuItem24 = new System.Windows.Forms.MenuItem();
@@ -803,6 +805,7 @@ namespace Tripoli
             this.menuDataFile.Index = 1;
             this.menuDataFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItem21,
+            this.menuReadIsotopXPhoeniX_TIMSDP,
             this.menuReadSector54DatFile,
             this.menuItem23,
             this.menuItem24,
@@ -823,67 +826,73 @@ namespace Tripoli
             this.menuItem21.Text = "Read IsotopX \'.xls\' Data File";
             this.menuItem21.Click += new System.EventHandler(this.menuReadMassLynxExcel_Click);
             // 
+            // menuReadIsotopXPhoeniX_TIMSDP
+            // 
+            this.menuReadIsotopXPhoeniX_TIMSDP.Index = 1;
+            this.menuReadIsotopXPhoeniX_TIMSDP.Text = "Read IsotopX PhoeniX \'TIMSDP\' Data File";
+            this.menuReadIsotopXPhoeniX_TIMSDP.Click += new System.EventHandler(this.menuReadIsotopXPhoeniX_TIMSDP_Click);
+            // 
             // menuReadSector54DatFile
             // 
-            this.menuReadSector54DatFile.Index = 1;
+            this.menuReadSector54DatFile.Index = 2;
             this.menuReadSector54DatFile.Text = "Read Sector54 \'.dat\' Data File";
             this.menuReadSector54DatFile.Click += new System.EventHandler(this.menuReadSector54DatFile_Click);
             // 
             // menuItem23
             // 
-            this.menuItem23.Index = 2;
+            this.menuItem23.Index = 3;
             this.menuItem23.Text = "Read Thermo-Finnigan Triton \'.exp\' Data File";
             this.menuItem23.Click += new System.EventHandler(this.menuReadThermoFinniganTriton_Click);
             // 
             // menuItem24
             // 
-            this.menuItem24.Index = 3;
+            this.menuItem24.Index = 4;
             this.menuItem24.Text = "Read Thermo-Finnigan Mat 261 and 262 \'.txt\' Data File";
             this.menuItem24.Click += new System.EventHandler(this.menuReadThermoFinniganMat261TxtFile_Click);
             // 
             // menuItemReadIDTIMS_ImportedCSV
             // 
-            this.menuItemReadIDTIMS_ImportedCSV.Index = 4;
-            this.menuItemReadIDTIMS_ImportedCSV.Text = "Read Data from \".csv\" import file";
+            this.menuItemReadIDTIMS_ImportedCSV.Index = 5;
+            this.menuItemReadIDTIMS_ImportedCSV.Text = "Read Data from IDTIMS-templated \'.csv\' import file";
             this.menuItemReadIDTIMS_ImportedCSV.Click += new System.EventHandler(this.menuItemReadIDTIMS_ImportedCSV_Click);
             // 
             // menuItem25
             // 
-            this.menuItem25.Index = 5;
+            this.menuItem25.Index = 6;
             this.menuItem25.Text = "-";
             // 
             // menuItemReadIonVantageFolder
             // 
-            this.menuItemReadIonVantageFolder.Index = 6;
+            this.menuItemReadIonVantageFolder.Index = 7;
             this.menuItemReadIonVantageFolder.Text = "Read IonVantage Folder of Cycle Data Files (.txt)";
             this.menuItemReadIonVantageFolder.Click += new System.EventHandler(this.menuItemReadIonVantageFolder_click);
             // 
             // menuItemAppendIonVantageFolder
             // 
             this.menuItemAppendIonVantageFolder.Enabled = false;
-            this.menuItemAppendIonVantageFolder.Index = 7;
+            this.menuItemAppendIonVantageFolder.Index = 8;
             this.menuItemAppendIonVantageFolder.Text = "Append IonVantage Folder of Cycle Data Files (.txt)";
             this.menuItemAppendIonVantageFolder.Click += new System.EventHandler(this.menuItemAppendIonVantageFolder_click);
             // 
             // menuItem20
             // 
-            this.menuItem20.Index = 8;
+            this.menuItem20.Index = 9;
             this.menuItem20.Text = "-";
             // 
             // menuItemReadGVGainsFolder
             // 
-            this.menuItemReadGVGainsFolder.Index = 9;
+            this.menuItemReadGVGainsFolder.Index = 10;
             this.menuItemReadGVGainsFolder.Text = "Read Folder of GV Gains Excel files";
             this.menuItemReadGVGainsFolder.Click += new System.EventHandler(this.menuReadGVGainsFolder_Click);
             // 
             // menuItem27
             // 
-            this.menuItem27.Index = 10;
+            this.menuItem27.Index = 11;
             this.menuItem27.Text = "-";
             // 
             // menuItemReadStandardsFolder
             // 
-            this.menuItemReadStandardsFolder.Index = 11;
+            this.menuItemReadStandardsFolder.Index = 12;
             this.menuItemReadStandardsFolder.Text = "Read Folder of Tripolized Standards";
             this.menuItemReadStandardsFolder.Click += new System.EventHandler(this.menuReadStandardsFolder_Click);
             // 
@@ -1493,9 +1502,9 @@ namespace Tripoli
             // 
             this.label1.Font = new System.Drawing.Font("Arial", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.IndianRed;
-            this.label1.Location = new System.Drawing.Point(175, 12);
+            this.label1.Location = new System.Drawing.Point(216, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(289, 23);
+            this.label1.Size = new System.Drawing.Size(248, 23);
             this.label1.TabIndex = 9;
             this.label1.Text = ">>>  preparing data for ET_Redux >>> ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1540,9 +1549,9 @@ namespace Tripoli
             this.lblTripoliWithVersion.Location = new System.Drawing.Point(56, 16);
             this.lblTripoliWithVersion.Margin = new System.Windows.Forms.Padding(0);
             this.lblTripoliWithVersion.Name = "lblTripoliWithVersion";
-            this.lblTripoliWithVersion.Size = new System.Drawing.Size(133, 23);
+            this.lblTripoliWithVersion.Size = new System.Drawing.Size(162, 23);
             this.lblTripoliWithVersion.TabIndex = 4;
-            this.lblTripoliWithVersion.Text = "Tripoli  4.9";
+            this.lblTripoliWithVersion.Text = "Tripoli  4.10";
             this.lblTripoliWithVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox1
@@ -4192,6 +4201,8 @@ namespace Tripoli
             }
 
         }
+
+
 
         /// <summary>
         /// Read gains files from folder and initiate history maintenance tasks
@@ -6864,7 +6875,8 @@ namespace Tripoli
 
         }
 
-        public void OpenIDTIMS_ImportedCSVFile(string fileName)
+
+        private void OpenIDTIMS_ImportedCSVFile(string fileName)
         {
             DisplayStandByMessage(true);
             AbortCurrentDataFile();
@@ -6912,6 +6924,8 @@ namespace Tripoli
             DisplayStandByMessage(false);
 
         }
+
+
         private void ExtractIDTIMSImportedCSVData()
         {
             DisplayStandByMessage(true);
@@ -6956,6 +6970,135 @@ namespace Tripoli
             CurrentDataFile = null;
             DisplayStandByMessage(false);
         }
+
+        // December 2020 **********************************************************************************************
+        /// <summary>
+        /// 2020 Read Data from new IsotpX data file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuReadIsotopXPhoeniX_TIMSDP_Click(object sender, EventArgs e)
+        {
+            pnlAnnotate.Visible = false;
+            openFileDialog1.Reset();
+            openFileDialog1.Title = "Select IsotopX PhoeniX Data File";
+            try
+            {
+                openFileDialog1.InitialDirectory =
+                    (new FileInfo(TripoliRegistry.GetRecentIsotopXPhoeniX_ImportTIMSDPFile())).DirectoryName;
+            }
+            catch { }
+            openFileDialog1.ReadOnlyChecked = true;
+            openFileDialog1.AutoUpgradeEnabled = true;
+            openFileDialog1.Multiselect = true;
+            openFileDialog1.Filter = "IsotopX PhoeniX '.TIMSDP' files (*.TIMSDP)|*.TIMSDP";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                // reset mainwindow info
+                TripoliFileInfo = null;
+
+                OpenIsotopXPhoeniX_ImportedTIMSDPFile(openFileDialog1.FileName);
+            }
+        }
+
+
+        private void OpenIsotopXPhoeniX_ImportedTIMSDPFile(string fileName)
+        {
+            DisplayStandByMessage(true);
+            AbortCurrentDataFile();
+
+            try
+            {
+                CurrentDataFile =
+                    new IsotopXPhoeniX_ImportedTIMSDPDataFile(new FileInfo(fileName));
+            }
+            catch
+            {
+                MessageBox.Show("Failed to Open .TIMSDP File");
+                AbortCurrentDataFile();
+            }
+
+            // refresh screen
+            this.Refresh();
+
+            if (CurrentDataFile != null)
+            {
+                string testValid = ((IsotopXPhoeniX_ImportedTIMSDPDataFile)CurrentDataFile).TestFileValidity();
+                if (testValid.CompareTo("TRUE") == 0)
+                {
+                    saveTripoliWorkFile_menuItem.Enabled = false; //save
+                    setSaveExportMenuItemsEnabled(true);
+                    saveAsTripoliWorkFile_menuItem.Enabled = true; //saveas
+                    menuWorkFileCloseFiles.Enabled = true; // close tripoli file
+                    TripoliRegistry.SetRecentIsotopXPhoeniX_ImportTIMSDPFile(fileName);
+                    CurrentDataFile.DataFileInfo.Refresh();
+                    TripoliRegistry.SetRecentLiveWorkflowFileAccessTime(DateTime.Now.ToUniversalTime().ToBinary());
+                    ExtractIsotopXPhoeniXImportedTIMSDPData();
+
+                    ((frmTripoliControlPanel)myTCP).Visible = false;
+
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "The file that you are attempting to open "
+                        + "\nis not a valid IsotopX PhoeniX '.TIMSDP' file. ",
+                        "Tripoli Warning");
+                    AbortCurrentDataFile();
+                }
+            }
+            DisplayStandByMessage(false);
+
+        }
+
+
+        private void ExtractIsotopXPhoeniXImportedTIMSDPData()
+        {
+            DisplayStandByMessage(true);
+
+            CurrentDataFileInfo = ((IsotopXPhoeniX_ImportedTIMSDPDataFile)CurrentDataFile).DataFileInfo;
+
+            RawRatios = ((IsotopXPhoeniX_ImportedTIMSDPDataFile)CurrentDataFile).LoadRatios();
+
+            if (!isInLiveWorkflow && (RawRatios == null))
+            {
+                AbortCurrentDataFile();
+            }
+            else
+            {
+                RawRatios.SourceFileInfo = CurrentDataFileInfo;
+
+                // default built-in BaPO2IC Oct 2009
+                if (RawRatios.CurrentBariumPhosphateIC == null)
+                {
+                    TripoliBariumPhosphateIC = BariumPhosphateIC.EARTHTIME_BaPO2IC();
+                }
+                // default built-in TlIC Oct 2009
+                if (RawRatios.CurrentThalliumIC == null)
+                {
+                    TripoliThalliumIC = ThalliumIC.EARTHTIME_TlIC();
+                }
+
+                RawRatios.PrepareCycleSelections2011();
+                DisplayCycleSelections();
+
+                ButtonPanelRatios.Visible = true;
+                SetStatusBar(CurrentDataFileInfo.FullName);
+                SetTitleBar("NONE");
+            }
+
+            try
+            {
+                CurrentDataFile.close();
+            }
+            catch { }
+
+            CurrentDataFile = null;
+            DisplayStandByMessage(false);
+        }
+
+        // END December 2020 *************************************************************************************************
+
 
         // mar 2010 start LA-ICP MS methods ===> refactoring **************************************************************
         private void menuItemReadElement2DataFolder_Click(object sender, EventArgs e)
@@ -7265,7 +7408,7 @@ namespace Tripoli
             }
         }
 
-  
+
 
     }
 

@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2021 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -20,15 +20,19 @@ using System.IO;
 namespace Tripoli.vendors_data
 {
     /// <summary>
-    /// Reads in IDTIMS imported data from a csv file
+    /// Reads in IDTIMS imported data from a IsotopX PhoeniX TIMSDP file
     /// </summary>
-    public class IDTIMS_ImportedCSVDataFile : MassSpecDataFile
+    public class IsotopXPhoeniX_ImportedTIMSDPDataFile : MassSpecDataFile
     {
         // Fields
         FileInfo _DatFile = null;
         StreamReader _DatStream = null;
 
-        public IDTIMS_ImportedCSVDataFile(FileInfo fi)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fi"></param>
+        public IsotopXPhoeniX_ImportedTIMSDPDataFile(FileInfo fi)
         {
             // we will open a simple stream on a textfile
 
@@ -64,7 +68,7 @@ namespace Tripoli.vendors_data
         public override string TestFileValidity()
         {
             string line = DatStream.ReadLine();
-            if (line.IndexOf("ID-TIMS DATA IMPORT TEMPLATE FOR TRIPOLI") > -1)
+            if (line.IndexOf("#HEADER") > -1)
                 return "TRUE";
             else
             {
@@ -102,34 +106,39 @@ namespace Tripoli.vendors_data
 
                     while ((line = DatStream.ReadLine()) != null)
                     {
-                        if (line.ToUpper().StartsWith("SAMPLE"))
+                        if (line.ToUpper().StartsWith("SAMPLEID"))
                         {
                             string[] sampleLine = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                             retval.SampleName = sampleLine[1].Trim();
                         }
 
-                        if (line.ToUpper().StartsWith("FRACTION"))
-                        {
-                            string[] fractionLine = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                            retval.FractionName = fractionLine[1].Trim();
-                        }
+                        //if (line.ToUpper().StartsWith("FRACTION"))
+                        //{
+                        //    string[] fractionLine = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                        //    retval.FractionName = fractionLine[1].Trim();
+                        //}
 
-                        if (line.ToUpper().StartsWith("CYCLES"))
+                        if (line.StartsWith("CyclesToMeasure"))
                         {
                             string[] cyclesLine = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                            cyclesPerBlock = Convert.ToInt32(cyclesLine[1].Trim());
-                            // use 0 as flag to create only one block
-                            if (cyclesPerBlock == 0)
-                                cyclesPerBlock = 10000; // assumed to be longer than any list of cycles
+                            cyclesPerBlock = Convert.ToInt32(cyclesLine[1].Trim());                          
                         }
+                        // use 0 as flag to create only one block
+                        if (cyclesPerBlock == 0)
+                            cyclesPerBlock = 10000; // assumed to be longer than any list of cycles
 
-                        if (line.ToUpper().StartsWith("DATE"))
+                        if (line.StartsWith("AnalysisStart"))
                         {
-                            string[] dateTimeInfo = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                            string[] dateInfo = dateTimeInfo[1].Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] lineInfo = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] dateTimeInfo = lineInfo[1].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] dateInfo = dateTimeInfo[0].Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] timeInfo = dateTimeInfo[1].Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
                             myDayOfMonth = dateInfo[1].Trim();
                             myMonth = dateInfo[0].Trim();
                             myYear = dateInfo[2].Trim();
+                            myHours = timeInfo[0].Trim();
+                            myMinutes = timeInfo[1].Trim();
+                            mySeconds = timeInfo[2].Trim();
 
                             // build a TimeStamp       
                             try
@@ -144,10 +153,11 @@ namespace Tripoli.vendors_data
                             }
                             catch (ArgumentException argExc)
                             {
+                                // Assume broken by European date and switch month and day
                                 retval.TimeStamp = new DateTime(//
                                         Convert.ToInt32(myYear), //
-                                        Convert.ToInt32(myMonth), //
                                         Convert.ToInt32(myDayOfMonth), //
+                                        Convert.ToInt32(myMonth), //
                                         Convert.ToInt32(myHours), //
                                         Convert.ToInt32(myMinutes), //
                                         Convert.ToInt32(mySeconds));
@@ -156,12 +166,12 @@ namespace Tripoli.vendors_data
                         }
 
                         // detect ratio names
-                        if (line.ToUpper().StartsWith("START DATA"))
+                        if (line.ToUpper().StartsWith("#CYCLES"))
                         {
-                            // ratio names populate next line, followed by lines of cycle data
+                            // ratio names polupate next line, followed by lines of cycle data
                             string ratioLine = DatStream.ReadLine();
 
-                            // line should be of form:  cycle #  	rationame 1	rationame 2	rationame 3 ...
+                            // line should be of form:  cycle #  time	rationame 1	rationame 2	rationame 3 ...
                             string[] ratioNames = ratioLine.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                             // load in names, ignoring first cell
                             for (int i = 1; i < ratioNames.Length; i++)
@@ -184,7 +194,7 @@ namespace Tripoli.vendors_data
                                 int currentBlock = Blocks.Add(new ArrayList());
                                 for (int b = 0; b < cyclesPerBlock; b++)
                                 {
-                                    if (dataLine != null)
+                                    if ((dataLine != null) && (dataLine.Trim().Length > 0))
                                     {
                                         string[] myRatios = dataLine.Trim().Split(new String[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                                         // ignore first entry = cycle number
@@ -205,6 +215,10 @@ namespace Tripoli.vendors_data
                                 }
                                 // done with block, see if more data
                                 keepReadingBlocks = (dataLine != null);
+                                if (keepReadingBlocks)
+                                {
+                                    keepReadingBlocks = dataLine.Trim().Length > 0;
+                                }
                             }
                         }
                     }

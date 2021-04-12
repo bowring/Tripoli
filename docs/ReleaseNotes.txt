@@ -1,3 +1,9 @@
+12.April.2021 Tripoli v. 4.10.0.0 (April 2021)
+
+News: This document is obviously out of date.  This version adds support for IsotopX PhoeniX TIMSDP files.
+
+
+
 12.November.2016: Release 4.9.0.1
          Thanks: Matt Rioux has reported some bugs and quirks that are fixed in this release.
 		 Bug: LiveWorkFlow now works again.  The issue was the migration of schema to 

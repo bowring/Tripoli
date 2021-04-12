@@ -33,12 +33,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2F8CB442C569CD822EA5DC15DB1BC0D7"
-        "OwnerKey" = "8:_DDF08BE63BEF458597C30A17C184E891"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_3652B0E961D44A6CB31D8703DDE49974"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -111,18 +105,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F007C129AF604E4A8ACDFB78B284841A"
-        "OwnerKey" = "8:_3FA7EBA5605B1462176FCF03256C3B5E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F007C129AF604E4A8ACDFB78B284841A"
-        "OwnerKey" = "8:_DDF08BE63BEF458597C30A17C184E891"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F2312F9DC9804D618D6AD0423DA0032A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -136,19 +118,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_02EE1E719993132F647A5478F84E7AB1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_3FA7EBA5605B1462176FCF03256C3B5E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F007C129AF604E4A8ACDFB78B284841A"
+        "OwnerKey" = "8:_02EE1E719993132F647A5478F84E7AB1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_2C7097541F1C25FB7776693D3AADD77F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -196,7 +178,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\Tripoli-4-9-0-1-Installer.msi"
+        "OutputFilename" = "8:Release\\Tripoli-4-10-0-0-Installer.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -348,6 +330,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2C7097541F1C25FB7776693D3AADD77F"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PowerCollections, Version=1.0.2141.24679, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_2C7097541F1C25FB7776693D3AADD77F"
+                    {
+                    "Name" = "8:PowerCollections.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:PowerCollections.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3652B0E961D44A6CB31D8703DDE49974"
@@ -581,37 +594,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F007C129AF604E4A8ACDFB78B284841A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
-            "AssemblyAsmDisplayName" = "8:stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-                "ScatterAssemblies"
-                {
-                    "_F007C129AF604E4A8ACDFB78B284841A"
-                    {
-                    "Name" = "8:stdole.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:stdole.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2312F9DC9804D618D6AD0423DA0032A"
             {
             "SourcePath" = "8:..\\docs\\BaPO2_Tl_Interference.pdf"
@@ -756,7 +738,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Tripoli"
         "ProductCode" = "8:{746939DE-2C4A-42BB-A02A-1740FEE10BCA}"
-        "PackageCode" = "8:{84FB9763-0B6A-48C2-904D-5A151F78ED1D}"
+        "PackageCode" = "8:{ACAD1049-FEEB-4946-A3FA-3C4E92831D10}"
         "UpgradeCode" = "8:{523FD083-CBAF-4DF5-BE7E-A8841C1AC28D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -824,7 +806,7 @@
                                             "Condition" = "8:"
                                             "Transitive" = "11:TRUE"
                                             "ValueTypes" = "3:1"
-                                            "Value" = "8:4.9.0.1"
+                                            "Value" = "8:4.10.0.0"
                                             }
                                         }
                                     }
@@ -930,6 +912,28 @@
                                                     "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_21DB9DDFB1464DA8BDFB60B438AA92E2"
                                                     {
                                                     "Name" = "8:(Default)"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:"
+                                                    }
+                                                }
+                                            }
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_242089FD0ED448C7A84123925B3452CC"
+                                            {
+                                            "Name" = "8:Recent IsotopxPhoeniX TIMSDP File List"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_D7BCB3A4245F497BB4B35D9972B6911C"
+                                                    {
+                                                    "Name" = "8:mruFile1"
                                                     "Condition" = "8:"
                                                     "Transitive" = "11:FALSE"
                                                     "ValueTypes" = "3:1"
@@ -2015,7 +2019,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DDF08BE63BEF458597C30A17C184E891"
             {
-            "SourcePath" = "8:..\\obj\\Release\\Tripoli.exe"
+            "SourcePath" = "8:..\\obj\\Debug\\Tripoli.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"

@@ -1,4 +1,4 @@
-2004 - 2010
+2004 - 2021
 
 The crew:
 	Original Idea: Sam Bowring
@@ -15,6 +15,9 @@ Loyal and invaluable Beta-testers:
 	 Drew Coleman
 	 Mark Schmitz
 	 Jim Crowley
+	 Ryan Ickert
+	 Nicole Rayner
+	 Alan Kirk
 	 ... are you a beta-tester?
      
  Funding:

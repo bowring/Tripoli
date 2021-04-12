@@ -24,8 +24,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Graphical Data Processor for Mass Spectrometry")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CIRDLES.org")]
-[assembly: AssemblyProduct("Tripoli 4.9")]
-[assembly: AssemblyCopyright("James F. Bowring 2004-2017")]
+[assembly: AssemblyProduct("Tripoli 4.10")]
+[assembly: AssemblyCopyright("James F. Bowring 2004-2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -45,5 +45,5 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 // Aug 2011 starting with 4.6.4.00, we are using Visual Studio 2010 and dotNet 3.5
-[assembly: AssemblyVersion("4.9.0.1")]
-[assembly: AssemblyFileVersion("4.9.0.1")]
+[assembly: AssemblyVersion("4.10.0.0")]
+[assembly: AssemblyFileVersion("4.10.0.0")]
