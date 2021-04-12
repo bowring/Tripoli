@@ -9,6 +9,5 @@
 *.user
 *.suo
 obj/
-!Tripoli-Installer/Release/*.msi
 [Dd]ebug*/
 [Rr]elease*/
