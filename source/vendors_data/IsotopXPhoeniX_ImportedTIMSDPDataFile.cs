@@ -131,11 +131,26 @@ namespace Tripoli.vendors_data
                         {
                             string[] lineInfo = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                             string[] dateTimeInfo = lineInfo[1].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-                            string[] dateInfo = dateTimeInfo[0].Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
+                            // new logic to see if we have yyyy-mm-dd or mm/dd/yyyy
+                            string[] dateInfo;
+                            if (dateTimeInfo[0].Contains("-"))
+                            {
+                                dateInfo = dateTimeInfo[0].Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries);
+                                myDayOfMonth = dateInfo[2].Trim();
+                                myMonth = dateInfo[1].Trim();
+                                myYear = dateInfo[0].Trim();
+                            }
+                            else
+                            {
+                                dateInfo = dateTimeInfo[0].Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
+                                myDayOfMonth = dateInfo[1].Trim();
+                                myMonth = dateInfo[0].Trim();
+                                myYear = dateInfo[2].Trim();
+                            }
+                            
+                           
                             string[] timeInfo = dateTimeInfo[1].Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
-                            myDayOfMonth = dateInfo[1].Trim();
-                            myMonth = dateInfo[0].Trim();
-                            myYear = dateInfo[2].Trim();
+                            
                             myHours = timeInfo[0].Trim();
                             myMinutes = timeInfo[1].Trim();
                             mySeconds = timeInfo[2].Trim();
@@ -153,7 +168,7 @@ namespace Tripoli.vendors_data
                             }
                             catch (ArgumentException argExc)
                             {
-                                // Assume broken by European date and switch month and day
+                                // Assume broken by European date in dd/mm/yyyy format and switch month and day
                                 retval.TimeStamp = new DateTime(//
                                         Convert.ToInt32(myYear), //
                                         Convert.ToInt32(myDayOfMonth), //
