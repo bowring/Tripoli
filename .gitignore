@@ -9,8 +9,8 @@
 *.user
 *.suo
 *.pdb
-*.msi
+#*.msi
 obj/
 [Dd]ebug*/
-[Rr]elease*/
-![Rr]elease*/*.msi
+#[Rr]elease*/
+#![Rr]elease*/*.msi

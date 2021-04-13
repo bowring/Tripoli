@@ -45,5 +45,5 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 // Aug 2011 starting with 4.6.4.00, we are using Visual Studio 2010 and dotNet 3.5
-[assembly: AssemblyVersion("4.10.0.0")]
-[assembly: AssemblyFileVersion("4.10.0.0")]
+[assembly: AssemblyVersion("4.10.0.1")]
+[assembly: AssemblyFileVersion("4.10.0.1")]
