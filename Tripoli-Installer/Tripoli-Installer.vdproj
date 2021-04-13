@@ -27,6 +27,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_2C7097541F1C25FB7776693D3AADD77F"
+        "OwnerKey" = "8:_DDF08BE63BEF458597C30A17C184E891"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3652B0E961D44A6CB31D8703DDE49974"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -51,20 +57,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8E2210271B6AD5EA4287264CF5E8DB50"
-        "OwnerKey" = "8:_DDF08BE63BEF458597C30A17C184E891"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_93C69EAFE4CA495399DDD68182FF0513"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9BDA7C54B9410767E89A64A883DE292A"
-        "OwnerKey" = "8:_8E2210271B6AD5EA4287264CF5E8DB50"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -95,12 +89,6 @@
         {
         "MsmKey" = "8:_DDF08BE63BEF458597C30A17C184E891"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DEE9580297C79D9BD363E20B394AE174"
-        "OwnerKey" = "8:_DDF08BE63BEF458597C30A17C184E891"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -142,13 +130,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DEE9580297C79D9BD363E20B394AE174"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8E2210271B6AD5EA4287264CF5E8DB50"
+        "OwnerKey" = "8:_2C7097541F1C25FB7776693D3AADD77F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -196,7 +178,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\Tripoli-4-8-4-Installer.msi"
+        "OutputFilename" = "8:Release\\Tripoli-4-10-0-0-Installer.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -350,6 +332,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2C7097541F1C25FB7776693D3AADD77F"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PowerCollections, Version=1.0.2141.24679, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_2C7097541F1C25FB7776693D3AADD77F"
+                    {
+                    "Name" = "8:PowerCollections.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:PowerCollections.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3652B0E961D44A6CB31D8703DDE49974"
             {
             "SourcePath" = "8:..\\docs\\ReleaseNotes.txt"
@@ -441,37 +454,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8E2210271B6AD5EA4287264CF5E8DB50"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.Microsoft.Office.Core, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_8E2210271B6AD5EA4287264CF5E8DB50"
-                    {
-                    "Name" = "8:Interop.Microsoft.Office.Core.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Interop.Microsoft.Office.Core.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_93C69EAFE4CA495399DDD68182FF0513"
             {
             "SourcePath" = "8:..\\images\\sunchexSPLASH.bmp"
@@ -490,26 +472,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9BDA7C54B9410767E89A64A883DE292A"
-            {
-            "SourcePath" = "8:MSO.DLL"
-            "TargetName" = "8:MSO.DLL"
-            "Tag" = "8:"
-            "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9C43F3DAB4594B7BA4066F1E61004360"
@@ -590,37 +552,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DEE9580297C79D9BD363E20B394AE174"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PowerCollections, Version=1.0.2141.24679, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_DEE9580297C79D9BD363E20B394AE174"
-                    {
-                    "Name" = "8:PowerCollections.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:PowerCollections.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EEADE1C5CC9C45108C07074CAC410705"
@@ -806,15 +737,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Tripoli"
-        "ProductCode" = "8:{DD33C807-BA4C-4E82-BB77-1239128BF23F}"
-        "PackageCode" = "8:{885BB710-6A76-4FD5-9935-DC6F379FF67C}"
+        "ProductCode" = "8:{93C14649-025B-436C-B063-3640B515B6F8}"
+        "PackageCode" = "8:{BC7BFD54-1407-4DC3-970E-74AB1EADCE1D}"
         "UpgradeCode" = "8:{523FD083-CBAF-4DF5-BE7E-A8841C1AC28D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:4.8.04"
+        "ProductVersion" = "8:4.10.0"
         "Manufacturer" = "8:Sunchex Systems"
         "ARPHELPTELEPHONE" = "8:843-608-1399 (voice or sms)"
         "ARPHELPLINK" = "8:https://cirdles.org"
@@ -875,7 +806,7 @@
                                             "Condition" = "8:"
                                             "Transitive" = "11:TRUE"
                                             "ValueTypes" = "3:1"
-                                            "Value" = "8:4.8.0.4"
+                                            "Value" = "8:4.10.0.0"
                                             }
                                         }
                                     }
@@ -981,6 +912,28 @@
                                                     "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_21DB9DDFB1464DA8BDFB60B438AA92E2"
                                                     {
                                                     "Name" = "8:(Default)"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:"
+                                                    }
+                                                }
+                                            }
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_242089FD0ED448C7A84123925B3452CC"
+                                            {
+                                            "Name" = "8:Recent IsotopxPhoeniX TIMSDP File List"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_D7BCB3A4245F497BB4B35D9972B6911C"
+                                                    {
+                                                    "Name" = "8:mruFile1"
                                                     "Condition" = "8:"
                                                     "Transitive" = "11:FALSE"
                                                     "ValueTypes" = "3:1"
@@ -1402,7 +1355,7 @@
                                                     "Condition" = "8:"
                                                     "Transitive" = "11:FALSE"
                                                     "ValueTypes" = "3:1"
-                                                    "Value" = "8:0.0000"
+                                                    "Value" = "8:137.81846"
                                                     }
                                                     "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_7B3108566881452A924BC2B19DDC345A"
                                                     {
@@ -1418,7 +1371,7 @@
                                                     "Condition" = "8:"
                                                     "Transitive" = "11:FALSE"
                                                     "ValueTypes" = "3:1"
-                                                    "Value" = "8:0.0000"
+                                                    "Value" = "8:137.81846"
                                                     }
                                                     "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_931A9E9CD9C84ADD9D4CDFC776B62872"
                                                     {

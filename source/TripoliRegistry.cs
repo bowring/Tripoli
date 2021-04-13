@@ -1,5 +1,5 @@
 ﻿/****************************************************************************
- * Copyright 2004-2015 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -542,6 +542,37 @@ namespace Tripoli.source
             return ((retval == "") || (retval == null)) ? Environment.CurrentDirectory : retval;
         }
 
+        public static void SetRecentIsotopXPhoeniX_ImportTIMSDPFile(string FileName)
+        {
+            try
+            {
+                RegistryKey Software = Registry.CurrentUser.OpenSubKey("Software");
+                RegistryKey Manuf = Software.OpenSubKey("Sunchex Systems", true);
+                RegistryKey Product = Manuf.OpenSubKey("Tripoli", true);
+                RegistryKey mruFiles = Product.OpenSubKey("Recent IsotopxPhoeniX TIMSDP File List", true);
+
+                mruFiles.SetValue("mruFile1", FileName);
+            }
+            catch { }
+        }
+
+        public static string GetRecentIsotopXPhoeniX_ImportTIMSDPFile()
+        {
+            // default
+            string retval = "";
+
+            try
+            {
+                RegistryKey Software = Registry.CurrentUser.OpenSubKey("Software");
+                RegistryKey Manuf = Software.OpenSubKey("Sunchex Systems");
+                RegistryKey Product = Manuf.OpenSubKey("Tripoli");
+                RegistryKey mruFiles = Product.OpenSubKey("Recent IsotopxPhoeniX TIMSDP File List");
+
+                retval = (string)mruFiles.GetValue("mruFile1");
+            }
+            catch { }
+            return ((retval == "") || (retval == null)) ? Environment.CurrentDirectory : retval;
+        }
 
 
         public static void SetRecentLiveWorkflowFileAccessTime(long fileAccessTime)

@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright 2004-2015 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -158,7 +158,7 @@ namespace Tripoli.vendors_data
                         // detect ratio names
                         if (line.ToUpper().StartsWith("START DATA"))
                         {
-                            // ratio names polupate next line, followed by lines of cycle data
+                            // ratio names populate next line, followed by lines of cycle data
                             string ratioLine = DatStream.ReadLine();
 
                             // line should be of form:  cycle #  	rationame 1	rationame 2	rationame 3 ...

@@ -1,5 +1,5 @@
 ﻿/****************************************************************************
- * Copyright 2004-2015 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -27,9 +27,10 @@ namespace Tripoli.earth_time_org
     /// 
     /// </summary>
     [Serializable]
-    [XmlRootAttribute("SampleMetaData",
-        Namespace = "http://www.earth-time.org",
-        IsNullable = true)]
+    [XmlRoot("SampleMetaData",
+        IsNullable = true,
+        DataType = "SampleMetaData",
+        Namespace = "https://raw.githubusercontent.com/EARTHTIME/Schema")]
     public class SampleMetaData
     {
         // NOTE: underscored names are used so that lower-case properties can be used 
@@ -69,6 +70,11 @@ namespace Tripoli.earth_time_org
             return retval;           
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fractionID"></param>
+        /// <returns></returns>
         public string getFractionFilePathForXML_Pb(string fractionID)
         {
             string retval = "";
@@ -88,6 +94,11 @@ namespace Tripoli.earth_time_org
             return retval;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
         public Tripoli.earth_time_org.SampleMetaData ReadSampleMetaData(string filename)
         {
             // Create an instance of the XmlSerializer class;
@@ -104,22 +115,6 @@ namespace Tripoli.earth_time_org
             serializer.UnknownElement += new
                 XmlElementEventHandler(serializer_UnknownElement);
 
-            //// Create the XmlSchemaSet class.
-            //XmlSchemaSet sc = new XmlSchemaSet();
-
-            //// Add the schema to the collection.
-            //sc.Add(null,//ConfigurationManager.AppSettings["EarthTimeOrgNamespace"],
-            //    getTracerSchemaURI());
-
-            //// Set the validation settings.
-            XmlReaderSettings settings = new XmlReaderSettings();
-            settings.ConformanceLevel = ConformanceLevel.Document;
-            //settings.ValidationType = ValidationType.Schema;
-            //settings.Schemas = sc;
-            //settings.ValidationEventHandler += new ValidationEventHandler(ValidationCallBack);
-
-            XmlReader reader;
-
             FileStream fs = null;
             try
             {
@@ -127,7 +122,7 @@ namespace Tripoli.earth_time_org
                 fs = new FileStream(filename, FileMode.Open);
 
                 // Create the XmlReader object.
-                reader = XmlReader.Create(fs, settings);
+               // reader = XmlReader.Create(fs, settings);
             }
             catch (Exception eFile)
             {
@@ -138,7 +133,7 @@ namespace Tripoli.earth_time_org
                     + " does not exist.");
             }
 
-            SampleMetaData retVal = (SampleMetaData)serializer.Deserialize(reader);
+            SampleMetaData retVal = (SampleMetaData)serializer.Deserialize(fs);
             fs.Close();
             return retVal;
 

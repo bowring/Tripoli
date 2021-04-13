@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright 2004-2015 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -96,6 +96,15 @@ namespace Tripoli.utilities
         {
             bool amUpdating = false;
 
+            if (verbose)
+            {
+                MessageBox.Show(
+                   "Please find the latest version of Tripoli at: https://github.com/bowring/Tripoli/releases",
+                                      "Tripoli Information",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Information);
+            }
+            /*
             try
             {
                 // split on \n
@@ -161,7 +170,7 @@ namespace Tripoli.utilities
                                           MessageBoxButtons.OK,
                                           MessageBoxIcon.Information);
                 }
-            }
+            }*/
             return amUpdating;
 
 

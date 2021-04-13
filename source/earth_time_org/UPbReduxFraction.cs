@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright 2004-2015 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using System.Security.Permissions;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace Tripoli.earth_time_org
 {
@@ -30,10 +31,11 @@ namespace Tripoli.earth_time_org
     /// </summary>
     //[Serializable]
     [XmlRootAttribute("UPbReduxFraction",
-        Namespace = "http://www.earth-time.org",
+        Namespace = "https://raw.githubusercontent.com/EARTHTIME/Schema",
         IsNullable = true)]
     public class UPbReduxFraction //: ISerializable
     {
+        private static string schemaName = "UPbReduxInputXMLSchema.xsd";
         // Fields
         private string _sampleName;
         private string _fractionID;
@@ -91,6 +93,44 @@ namespace Tripoli.earth_time_org
                 serializer.Serialize(writer, this);
 
                 writer.Close();
+
+
+
+                // add in the schema location and copyright
+                // read it back in
+                ArrayList contents = new ArrayList();
+                StreamReader sr = File.OpenText(filename);
+                String input;
+                while ((input = sr.ReadLine()) != null)
+                {
+                    contents.Add(input);
+                }
+                sr.Close();
+
+                // edit it
+                string[] temp = new string[1];
+                temp = ((string)contents[1]).Split(new string[] { "xmlns" }, StringSplitOptions.RemoveEmptyEntries);
+                Console.WriteLine(temp);
+
+                // fix up contents
+                contents.RemoveAt(1);
+                contents.Insert(1, temp[0] + "xmlns" + temp[1]);
+                contents.Insert(2, "        xmlns" + temp[2]);
+                contents.Insert(3, "        xmlns=\"https://raw.githubusercontent.com/EARTHTIME/Schema\"");
+                contents.Insert(4, "        xsi:schemaLocation=\"https://raw.githubusercontent.com/EARTHTIME/Schema");
+                contents.Insert(5, "                            " + getUPbReduxFractionSchemaURI() + "\">");
+
+                // write it back out
+                StreamWriter sw = File.CreateText(filename);
+                for (int s = 0; s < contents.Count; s++)
+                {
+                    sw.WriteLine((string)contents[s]);
+                }
+                sw.Close();
+
+
+
+
             }
             catch (Exception e)
             {
@@ -99,6 +139,14 @@ namespace Tripoli.earth_time_org
 
             // force a later time ??
         }
+
+        public string getUPbReduxFractionSchemaURI()
+        {
+            return
+                ConfigurationManager.AppSettings["EarthTimeOrgCurrentDirectoryForXSD"]
+                + schemaName;
+        }
+
 
 /*
         protected UPbReduxFraction(SerializationInfo si, StreamingContext context)

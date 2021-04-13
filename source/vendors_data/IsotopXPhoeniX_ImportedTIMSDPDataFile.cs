@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2021 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -20,15 +20,19 @@ using System.IO;
 namespace Tripoli.vendors_data
 {
     /// <summary>
-    /// Reads in a single data file (.txt) from ThermoFinnigan Element2 - based on Jef Vervoort's setup at Washington State U.
+    /// Reads in IDTIMS imported data from a IsotopX PhoeniX TIMSDP file
     /// </summary>
-    public class ThermoFinniganElement2DataFile : MassSpecDataFile
+    public class IsotopXPhoeniX_ImportedTIMSDPDataFile : MassSpecDataFile
     {
         // Fields
         FileInfo _DatFile = null;
         StreamReader _DatStream = null;
 
-        public ThermoFinniganElement2DataFile(FileInfo fi)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fi"></param>
+        public IsotopXPhoeniX_ImportedTIMSDPDataFile(FileInfo fi)
         {
             // we will open a simple stream on a textfile
 
@@ -64,7 +68,7 @@ namespace Tripoli.vendors_data
         public override string TestFileValidity()
         {
             string line = DatStream.ReadLine();
-            if (line.ToUpper().IndexOf("TRACE FOR MASS:") > -1)
+            if (line.IndexOf("#HEADER") > -1)
                 return "TRUE";
             else
             {
@@ -83,96 +87,105 @@ namespace Tripoli.vendors_data
             // set up array to return rawratios
             ArrayList FunctionNames = new ArrayList();
             ArrayList Blocks = new ArrayList();
-            int cyclesPerBlock = 10000; // forces all data into one block
+            int cyclesPerBlock = 0;
             TripoliWorkProduct retval = new TripoliWorkProduct();
             retval.isPartialResult = false;
-            retval.RatioType = "UPb";
-
 
             try
             {
-                // reset DatStream from test of first line
-                DatStream.Close();
-                DatStream = new StreamReader(DataFileInfo.FullName);
-
                 using (DatStream)
                 {
                     string line;
 
                     string myDayOfMonth = "1";
-                    string myMonth = "1";
+                    string myMonth = Convert.ToString(myMonthsShort.Jan);
                     string myYear = "2000";
                     string myHours = "0";
                     string myMinutes = "0";
                     string mySeconds = "0";
 
-                    // mar 2010 missing date stamp so do this for now
-                    retval.TimeStamp = new DateTime(//
+                    while ((line = DatStream.ReadLine()) != null)
+                    {
+                        if (line.ToUpper().StartsWith("SAMPLEID"))
+                        {
+                            string[] sampleLine = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                            retval.SampleName = sampleLine[1].Trim();
+                        }
+
+                        //if (line.ToUpper().StartsWith("FRACTION"))
+                        //{
+                        //    string[] fractionLine = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                        //    retval.FractionName = fractionLine[1].Trim();
+                        //}
+
+                        if (line.StartsWith("CyclesToMeasure"))
+                        {
+                            string[] cyclesLine = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                            cyclesPerBlock = Convert.ToInt32(cyclesLine[1].Trim());                          
+                        }
+                        // use 0 as flag to create only one block
+                        if (cyclesPerBlock == 0)
+                            cyclesPerBlock = 10000; // assumed to be longer than any list of cycles
+
+                        if (line.StartsWith("AnalysisStart"))
+                        {
+                            string[] lineInfo = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] dateTimeInfo = lineInfo[1].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] dateInfo = dateTimeInfo[0].Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] timeInfo = dateTimeInfo[1].Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+                            myDayOfMonth = dateInfo[1].Trim();
+                            myMonth = dateInfo[0].Trim();
+                            myYear = dateInfo[2].Trim();
+                            myHours = timeInfo[0].Trim();
+                            myMinutes = timeInfo[1].Trim();
+                            mySeconds = timeInfo[2].Trim();
+
+                            // build a TimeStamp       
+                            try
+                            {
+                                retval.TimeStamp = new DateTime(//
                                         Convert.ToInt32(myYear), //
-                                        Convert.ToInt32(myMonth), //
+                                        Convert.ToInt32(Enum.Parse(typeof(myMonthsShort), myMonth)), //
                                         Convert.ToInt32(myDayOfMonth), //
                                         Convert.ToInt32(myHours), //
                                         Convert.ToInt32(myMinutes), //
                                         Convert.ToInt32(mySeconds));
+                            }
+                            catch (ArgumentException argExc)
+                            {
+                                // Assume broken by European date and switch month and day
+                                retval.TimeStamp = new DateTime(//
+                                        Convert.ToInt32(myYear), //
+                                        Convert.ToInt32(myDayOfMonth), //
+                                        Convert.ToInt32(myMonth), //
+                                        Convert.ToInt32(myHours), //
+                                        Convert.ToInt32(myMinutes), //
+                                        Convert.ToInt32(mySeconds));
+                            }
 
-                    while ((line = DatStream.ReadLine()) != null)
-                    {
-
-                        ////if (line.ToUpper().StartsWith("DATE"))
-                        ////{
-                        ////    string[] dateTimeInfo = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                        ////    string[] dateInfo = dateTimeInfo[1].Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
-                        ////    myDayOfMonth = dateInfo[1].Trim();
-                        ////    myMonth = dateInfo[0].Trim();
-                        ////    myYear = dateInfo[2].Trim();
-
-                        ////    // build a TimeStamp       
-                        ////    try
-                        ////    {
-                        ////        retval.TimeStamp = new DateTime(//
-                        ////                Convert.ToInt32(myYear), //
-                        ////                Convert.ToInt32(Enum.Parse(typeof(myMonthsShort), myMonth)), //
-                        ////                Convert.ToInt32(myDayOfMonth), //
-                        ////                Convert.ToInt32(myHours), //
-                        ////                Convert.ToInt32(myMinutes), //
-                        ////                Convert.ToInt32(mySeconds));
-                        ////    }
-                        ////    catch (ArgumentException argExc)
-                        ////    {
-                        ////        retval.TimeStamp = new DateTime(//
-                        ////                Convert.ToInt32(myYear), //
-                        ////                Convert.ToInt32(myMonth), //
-                        ////                Convert.ToInt32(myDayOfMonth), //
-                        ////                Convert.ToInt32(myHours), //
-                        ////                Convert.ToInt32(myMinutes), //
-                        ////                Convert.ToInt32(mySeconds));
-                        ////    }
-
-                        ////}
+                        }
 
                         // detect ratio names
-                        if (line.ToUpper().StartsWith("TRACE FOR MASS:"))
+                        if (line.ToUpper().StartsWith("#CYCLES"))
                         {
-                            // intensity and ratio names populate this line, followed  6 lines down by lines of data
-                            string ratioLine = line;
+                            // ratio names polupate next line, followed by lines of cycle data
+                            string ratioLine = DatStream.ReadLine();
 
-                            // line should be of form:  Trace for Mass:	Hg202(LR)	Pb204(LR)	Pb206(LR)	Pb207(LR)	Pb208(LR)	Th232(LR)	U235(LR)	U238(LR)	
-                            //                                                                              Pb206/Pb207(LR)	Pb206/U238(LR)	206/Pb204(LR)	Pb207/U235(LR)	Pb208/Th232(LR)
-                            string[] ratioNames = ratioLine.Split(new string[] { "\t" }, StringSplitOptions.RemoveEmptyEntries);
+                            // line should be of form:  cycle #  time	rationame 1	rationame 2	rationame 3 ...
+                            string[] ratioNames = ratioLine.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                             // load in names, ignoring first cell
                             for (int i = 1; i < ratioNames.Length; i++)
                             {
                                 FunctionNames.Add(ratioNames[i].Trim());
                             }
 
-                            // Skip 5 lines and each succeeding line contains cycle data *********************************
-                            String dataLine = null;
-                            for (int i = 0; i < 5; i++)
-                            {
-                                dataLine = DatStream.ReadLine().Trim();
-                            }
-                            
-                            dataLine = DatStream.ReadLine().Trim();
+                            if (((string)FunctionNames[0]).Contains("20"))
+                                retval.RatioType = "Pb";
+                            else
+                                retval.RatioType = "U";
+
+                            // Now each succeeding line contains cycle data *********************************
+                            String dataLine = DatStream.ReadLine().Trim();
                             Boolean keepReadingBlocks = (dataLine.Length > 0);
 
                             while (keepReadingBlocks)
@@ -181,9 +194,9 @@ namespace Tripoli.vendors_data
                                 int currentBlock = Blocks.Add(new ArrayList());
                                 for (int b = 0; b < cyclesPerBlock; b++)
                                 {
-                                    if (dataLine != null)
+                                    if ((dataLine != null) && (dataLine.Trim().Length > 0))
                                     {
-                                        string[] myRatios = dataLine.Trim().Split(new String[] { "\t" }, StringSplitOptions.RemoveEmptyEntries);
+                                        string[] myRatios = dataLine.Trim().Split(new String[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                                         // ignore first entry = cycle number
                                         for (int ratio = 1; ratio < myRatios.Length; ratio++)
                                         {
@@ -202,6 +215,10 @@ namespace Tripoli.vendors_data
                                 }
                                 // done with block, see if more data
                                 keepReadingBlocks = (dataLine != null);
+                                if (keepReadingBlocks)
+                                {
+                                    keepReadingBlocks = dataLine.Trim().Length > 0;
+                                }
                             }
                         }
                     }
@@ -220,7 +237,7 @@ namespace Tripoli.vendors_data
 
             if (Blocks.Count == 0) return null;
 
-            // now we need to create double[] for each raw data value
+            // now we need to create double[] for each rawratio
             int ratioCount = FunctionNames.Count;
             // size of double[] is going to be number of blocks times size of first block / ratioCount
             ArrayList myDoubles = new ArrayList();
@@ -254,6 +271,10 @@ namespace Tripoli.vendors_data
                 }
 
                 RawRatio myRR = new RawRatio((string)FunctionNames[ratio], (double[])myDoubles[currentDouble]);
+
+                // repaired April 2007 in response to Matt in Sam's lab who noticed that
+                // if the first block was short, all the other blocks were forced short
+                // myRR.CyclesPerBlock = ((ArrayList)Blocks[0]).Count / ratioCount;
                 myRR.CyclesPerBlock = myBlockSize / ratioCount;
 
                 retval.Add(myRR);

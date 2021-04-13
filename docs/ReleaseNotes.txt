@@ -1,3 +1,20 @@
+12.April.2021 Tripoli v. 4.10.0.0 (April 2021)
+
+News: This document is obviously out of date.  This version adds support for IsotopX PhoeniX TIMSDP files.
+
+
+
+12.November.2016: Release 4.9.0.1
+         Thanks: Matt Rioux has reported some bugs and quirks that are fixed in this release.
+		 Bug: LiveWorkFlow now works again.  The issue was the migration of schema to 
+		          https://github.com/EARTHTIME/Schema in 2015 and a failure on my part
+				  to fully update Tripoli. Please inform me of issues when you experience
+				  them, and send money if you can, as we are working on fumes.
+		 Info: For LiveWorkFlow, data columns (ratios, etc.) must have unique names or
+		          Tripoli gets confused when saving and updating.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 05.April.2015: Release 4.8.0.3
          Bug: Updated Mat 262 .txt file reading to handle poorly-formed files.
 28.March.2015: Release 4.8.0.2
@@ -36,7 +53,7 @@
 		
 		Feature:     Tripoli now supports bulk re-fractionation correction using a different tracer
 		                    from the tracer used in the saved ".trip" file.  Of course you then need to re-export
-		                    the results to U-Pb_Redux.
+		                    the results to ET_Redux.
 							
 		Feature:     Tripoli now supports oxide correction when the tracer contains U236.
 
@@ -56,7 +73,7 @@
 					are saved with this new version, older versions will not open them reliably.  
 					
 		Community:	Thanks to the support of this community, I have been able to fund a small lab and
-					maintain a website to support users of Tripoli and U-Pb_Redux.  The lab is called the
+					maintain a website to support users of Tripoli and ET_Redux.  The lab is called the
 					"Cyber Infrastructure Research and Development Lab for the Earth Sciences" (CIRDLES).
 					The URL is https://cirdles.cs.cofc.edu . (self-signing, so ignore browser warnings)
 									
@@ -74,7 +91,7 @@
 		Feature: Tripoli reads IDTIMS data from a ".csv" file.  The template for this file is accessed through 
 					the Resources / Tools menu.
 					
-		Feature:	We have introduced the notion of Live Workflow to both Tripoli and U-Pb_Redux.  The
+		Feature:	We have introduced the notion of Live Workflow to both Tripoli and ET_Redux.  The
 					basic idea is to support the automatic processing and transmission of data whenever
 					possible.  With this version, we implemented Live Workflow for ID-TIMS.  The user manages
 					Live Workflow for Tripoli using the Tripoli Control Panel and the Live Workflow Folders menu.
@@ -84,11 +101,11 @@
 					Tripoli file in the Live Workflow data folder, otherwise Tripoli prompts for a location.
 					
 					Tripoli provides 2 modes of Live Workflow
-					1.  Managed Live Workflow:  When you use  U-Pb_Redux to manage your workflow, it writes a folder named 
-					    "SampleMetaData" that tells Tripoli  where to automatically export data for U-Pb_Redux.  
+					1.  Managed Live Workflow:  When you use  ET_Redux to manage your workflow, it writes a folder named 
+					    "SampleMetaData" that tells Tripoli  where to automatically export data for ET_Redux.  
 					    Use the Live Workflow Folders menu to specify the location of the SampleMetaData folder.       
 					    
-					2.  Simple Live Workflow:  Tripoli does not automatically export data for U-Pb_Redux.  To use this mode, 
+					2.  Simple Live Workflow:  Tripoli does not automatically export data for ET_Redux.  To use this mode, 
 						 check the option "Simple Live Workflow: ignore SampleMetaData" from the Live Workflow Folders menu.
 						 
 					Both Simple Live Workflow (the old way) and Managed Live Workflow are accessed through the Tripoli Control Panel, 
@@ -102,7 +119,7 @@
 		Bugs:		Miscellaneous graphical bugs repaired.
 
 13.April.2008: Release 4.5.6.1
-		Revision:	The xml output to U-Pb_Redux was modified.
+		Revision:	The xml output to ET_Redux was modified.
 
 05.April.2008: Release 4.5.6.0
 		Update:     Uranium cycle-by-cycle fractionation correction has been ugraded.  For Tracer type =
@@ -132,7 +149,7 @@
 					'1 + alphaPb' that contains each alphaPb plus 1 (to prevent negative values.)
 					Currently, Tripoli corrects: 206/204, 207/204, 208/204, 206/207, 206/208,
 					                             204/205, 206/205, 207/205, 208/205.
-					Tripoli provides for the export of these ratios to U-Pb_Redux.
+					Tripoli provides for the export of these ratios to ET_Redux.
 					
 		Bug:    Oxide correction of Sector 54 files sometimes failed.  Corrected in this version.
 
@@ -155,7 +172,7 @@
 					
 		Note:		The changes in this version are a result of a meeting at MIT on 5.October.2007
 					with Jim BOwring, Noah McClean, Blaire Shoene, and Sam Bowring to detail
-					the next set of featuresa for U-Pb_Redux.  One major result was a re-thinking
+					the next set of featuresa for ET_Redux.  One major result was a re-thinking
 					of how values would be stored so as to aid in the understanding and tracking of
 					the propagation of uncertainties.  Consequently, some data structures and 
 					XML shema were changed to reflect these improvements. One immediate consequence 
@@ -201,7 +218,7 @@
 		Misc:		Re-organized code base.
 
 23.July.2007: Release 4.5.2.8
-		Bug:		Fixed backward compatibility issue with exporting U-Pb_Redux data (thanks to Noah McLean)
+		Bug:		Fixed backward compatibility issue with exporting ET_Redux data (thanks to Noah McLean)
       
 23.July.2007:Release 4.5.2.7
 		Bug:		Trapped potential divide by zero when missing data points during fractionation correction
@@ -222,7 +239,7 @@
 		Change:		Added warning if export attempted without saving workfile
 	
 03.June.2007: Release 4.5.2.3
-		Change:		The mean alphaU reported with an export to U-Pb_Redux is now the mean of the selected
+		Change:		The mean alphaU reported with an export to ET_Redux is now the mean of the selected
 					data.  The mean for all the data is still reported in the tracer menu item 
 					'Show Fractionation Report ...'
 		Bug:		The oxide correction is now only performed on good data (> 0).  THis prevents
@@ -244,8 +261,8 @@
 					from the full date and time.  The Earth-Time tracers and schema have 
 					also been changed.  If you get a parser warning when you open a locally
 					save Tracer, merely re-save it and the error will self-correct.
-		Change:		In preparation for Earth-Time.org's release of U-Pb_Redux, Tripoli exports
-					an xml file of selected ratios for use by U-Pb_Redux.
+		Change:		In preparation for Earth-Time.org's release of ET_Redux, Tripoli exports
+					an xml file of selected ratios for use by ET_Redux.
 
 10.April.2007: release 4.5.1.1
 		Bugs:	Minor bug fixes with export functionality
@@ -314,7 +331,7 @@
 		Bug re:		title of graph window fixed to show current sample if save as .trip file
 		Feature:	Added 'Auto-Calculate' checkbox to individual ratio graphs to allow user to
 					postpone the calculation of statistics until ready.
-		Feature:	beta export function to create text input file for Earth-Time.org U-Pb_Redux software
+		Feature:	beta export function to create text input file for Earth-Time.org ET_Redux software
 
 22.March.2006: release 4.2.1.1
 		Feature:	Graphs: right-click toggles the outlier status of data to the 

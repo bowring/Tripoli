@@ -235,7 +235,7 @@
             this.label3.Size = new System.Drawing.Size(646, 15);
             this.label3.TabIndex = 25;
             this.label3.Tag = "";
-            this.label3.Text = "Set  the location of the SampleMetaData folder you created with U-Pb_Redux:";
+            this.label3.Text = "Set  the location of the SampleMetaData folder you created with ET_Redux:";
             // 
             // lblSampleMetaDataFolder_label
             // 

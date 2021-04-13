@@ -1,5 +1,5 @@
 ﻿/****************************************************************************
- * Copyright 2004-2015 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Graphical Data Processor for Mass Spectrometry")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CIRDLES.org")]
-[assembly: AssemblyProduct("Tripoli 4.8")]
-[assembly: AssemblyCopyright("James F. Bowring 2004-2015")]
+[assembly: AssemblyProduct("Tripoli 4.10")]
+[assembly: AssemblyCopyright("James F. Bowring 2004-2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -45,5 +45,5 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 // Aug 2011 starting with 4.6.4.00, we are using Visual Studio 2010 and dotNet 3.5
-[assembly: AssemblyVersion("4.8.0.4")]
-[assembly: AssemblyFileVersion("4.8.0.4")]
+[assembly: AssemblyVersion("4.10.0.0")]
+[assembly: AssemblyFileVersion("4.10.0.0")]

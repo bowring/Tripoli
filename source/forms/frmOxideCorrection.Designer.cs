@@ -64,9 +64,9 @@ namespace Tripoli
             // lblDefaultr18O_16O
             // 
             this.lblDefaultr18O_16O.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDefaultr18O_16O.Location = new System.Drawing.Point(12, 12);
+            this.lblDefaultr18O_16O.Location = new System.Drawing.Point(11, 9);
             this.lblDefaultr18O_16O.Name = "lblDefaultr18O_16O";
-            this.lblDefaultr18O_16O.Size = new System.Drawing.Size(201, 22);
+            this.lblDefaultr18O_16O.Size = new System.Drawing.Size(221, 22);
             this.lblDefaultr18O_16O.TabIndex = 44;
             this.lblDefaultr18O_16O.Text = "The default value of 18O / 16O is:";
             this.lblDefaultr18O_16O.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -79,7 +79,7 @@ namespace Tripoli
             this.lblr18O_16O.Size = new System.Drawing.Size(201, 68);
             this.lblr18O_16O.TabIndex = 45;
             this.lblr18O_16O.Text = "Value of 18O / 16O that was applied automatically when raw data was imported into" +
-                " this Tripoli WorkFile:";
+    " this Tripoli WorkFile:";
             this.lblr18O_16O.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbr18O_16O
@@ -106,7 +106,7 @@ namespace Tripoli
             // 
             this.tbr18O_16Odefault.BackColor = System.Drawing.Color.White;
             this.tbr18O_16Odefault.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbr18O_16Odefault.Location = new System.Drawing.Point(239, 9);
+            this.tbr18O_16Odefault.Location = new System.Drawing.Point(239, 12);
             this.tbr18O_16Odefault.Name = "tbr18O_16Odefault";
             this.tbr18O_16Odefault.Size = new System.Drawing.Size(87, 22);
             this.tbr18O_16Odefault.TabIndex = 50;
@@ -130,8 +130,8 @@ namespace Tripoli
             this.Name = "frmOxideCorrection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Oxide Correction";
-            this.Load += new System.EventHandler(this.frmOxideCorrection_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmOxideCorrection_FormClosed);
+            this.Load += new System.EventHandler(this.frmOxideCorrection_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

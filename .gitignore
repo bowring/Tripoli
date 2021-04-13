@@ -3,12 +3,14 @@
 *.application
 *.exe
 *.LIC
-*.msi
 *.cache
 *.force
 *.manifest
 *.user
+*.suo
+*.pdb
+*.msi
 obj/
-Tripoli-Installer/Release/
 [Dd]ebug*/
 [Rr]elease*/
+![Rr]elease*/*.msi

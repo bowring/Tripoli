@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright 2004-2015 James F. Bowring and www.Earth-Time.org
+ * Copyright 2004-2017 James F. Bowring and www.Earth-Time.org
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ namespace Tripoli.earth_time_org
     /// </summary>
     [Serializable]
     [XmlRootAttribute("BariumPhosphateIC",
-        Namespace = "http://www.earth-time.org",
+        Namespace = "https://raw.githubusercontent.com/EARTHTIME/Schema",
         IsNullable = true)]
     public class BariumPhosphateIC : ISerializable
     {
@@ -171,8 +171,8 @@ namespace Tripoli.earth_time_org
             contents.RemoveAt(1);
             contents.Insert(1, temp[0] + "xmlns" + temp[1]);
             contents.Insert(2, "        xmlns" + temp[2]);
-            contents.Insert(3, "        xmlns=\"http://www.earth-time.org\"");
-            contents.Insert(4, "        xsi:schemaLocation=\"http://www.earth-time.org");
+            contents.Insert(3, "        xmlns=\"https://raw.githubusercontent.com/EARTHTIME/Schema\"");
+            contents.Insert(4, "        xsi:schemaLocation=\"https://raw.githubusercontent.com/EARTHTIME/Schema");
             contents.Insert(5, "                            " + getBariumPhosphateICSchemaURI() + "\">"); 
 
             // write it back out
@@ -191,8 +191,7 @@ namespace Tripoli.earth_time_org
         public string getBariumPhosphateICSchemaURI()
         {
             return
-                ConfigurationManager.AppSettings["EarthTimeOrgCurrentURL"]
-                + ConfigurationManager.AppSettings["EarthTimeOrgCurrentDirectoryForXSD"]
+                ConfigurationManager.AppSettings["EarthTimeOrgCurrentDirectoryForXSD"]
                 + "BariumPhosphateICXMLSchema.xsd";
         }
 
@@ -217,26 +216,26 @@ namespace Tripoli.earth_time_org
             serializer.UnknownElement += new
                 XmlElementEventHandler(serializer_UnknownElement);
 
-            // Create the XmlSchemaSet class.
-            XmlSchemaSet sc = new XmlSchemaSet();
+            //// Create the XmlSchemaSet class.
+            //XmlSchemaSet sc = new XmlSchemaSet();
 
-            // Add the schema to the collection.
-            sc.Add(ConfigurationManager.AppSettings["EarthTimeOrgNamespace"],
-                getBariumPhosphateICSchemaURI());
+            //// Add the schema to the collection.
+            //sc.Add(ConfigurationManager.AppSettings["EarthTimeOrgNamespace"],
+            //    getBariumPhosphateICSchemaURI());
 
-            // Set the validation settings.
+            //// Set the validation settings.
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.ConformanceLevel = ConformanceLevel.Document;
             settings.ValidationType = ValidationType.Schema;
-            settings.Schemas = sc;
-            settings.ValidationEventHandler += new ValidationEventHandler(ValidationCallBack);
+            //settings.Schemas = sc;
+            //settings.ValidationEventHandler += new ValidationEventHandler(ValidationCallBack);
 
             XmlReader reader;
-
+            FileStream fs = null;
 
             try
             {
-                if (filename.StartsWith("http://"))
+                if (filename.StartsWith("http"))
                 {
                     // Create the XmlReader object.
                     reader = XmlReader.Create(TripoliUtilities.getWebStream(filename), settings);
@@ -244,7 +243,7 @@ namespace Tripoli.earth_time_org
                 else
                 {
                     // A FileStream is needed to read the XML document.
-                    FileStream fs = new FileStream(filename, FileMode.Open);
+                    fs = new FileStream(filename, FileMode.Open);
 
                     // Create the XmlReader object.
                     reader = XmlReader.Create(fs, settings);
@@ -260,7 +259,13 @@ namespace Tripoli.earth_time_org
                     + " does not exist.");
             }
 
-            return (BariumPhosphateIC)serializer.Deserialize(reader);
+            BariumPhosphateIC retVal =  (BariumPhosphateIC)serializer.Deserialize(reader);
+            if (fs != null)
+            {
+                fs.Close();
+            }
+            reader.Close();
+            return retVal;
 
         }
 
