@@ -8,8 +8,9 @@
 *.manifest
 *.user
 *.suo
+*.pdb
 *.msi
 obj/
 [Dd]ebug*/
 [Rr]elease*/
-[Rr]elease*/*.msi
+![Rr]elease*/*.msi

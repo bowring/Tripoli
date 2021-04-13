@@ -96,6 +96,15 @@ namespace Tripoli.utilities
         {
             bool amUpdating = false;
 
+            if (verbose)
+            {
+                MessageBox.Show(
+                   "Please find the latest version of Tripoli at: https://github.com/bowring/Tripoli/releases",
+                                      "Tripoli Information",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Information);
+            }
+            /*
             try
             {
                 // split on \n
@@ -161,7 +170,7 @@ namespace Tripoli.utilities
                                           MessageBoxButtons.OK,
                                           MessageBoxIcon.Information);
                 }
-            }
+            }*/
             return amUpdating;
 
 

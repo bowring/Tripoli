@@ -737,15 +737,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Tripoli"
-        "ProductCode" = "8:{746939DE-2C4A-42BB-A02A-1740FEE10BCA}"
-        "PackageCode" = "8:{ACAD1049-FEEB-4946-A3FA-3C4E92831D10}"
+        "ProductCode" = "8:{93C14649-025B-436C-B063-3640B515B6F8}"
+        "PackageCode" = "8:{BC7BFD54-1407-4DC3-970E-74AB1EADCE1D}"
         "UpgradeCode" = "8:{523FD083-CBAF-4DF5-BE7E-A8841C1AC28D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:4.9.01"
+        "ProductVersion" = "8:4.10.0"
         "Manufacturer" = "8:Sunchex Systems"
         "ARPHELPTELEPHONE" = "8:843-608-1399 (voice or sms)"
         "ARPHELPLINK" = "8:https://cirdles.org"
@@ -2019,7 +2019,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DDF08BE63BEF458597C30A17C184E891"
             {
-            "SourcePath" = "8:..\\obj\\Debug\\Tripoli.exe"
+            "SourcePath" = "8:..\\obj\\Release\\Tripoli.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
