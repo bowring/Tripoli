@@ -118,7 +118,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2C7097541F1C25FB7776693D3AADD77F"
+        "OwnerKey" = "8:_3FA7EBA5605B1462176FCF03256C3B5E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,7 +130,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3FA7EBA5605B1462176FCF03256C3B5E"
+        "OwnerKey" = "8:_2C7097541F1C25FB7776693D3AADD77F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -141,7 +141,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\Tripoli-4-8-3-Installer.msi"
+        "OutputFilename" = "8:Debug\\Tripoli-4-10-0-2-Installer.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -178,7 +178,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\Tripoli-4-10-0-1-Installer.msi"
+        "OutputFilename" = "8:Release\\Tripoli-4-10-0-2-Installer.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -193,7 +193,7 @@
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
-            "Url" = "8:"
+            "Url" = "8:https://github.com/bowring/Tripoli/releases/download/v4.10.0.2/Tripoli-4-10-0-2-Installer.msi"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
@@ -339,6 +339,11 @@
             "AssemblyAsmDisplayName" = "8:PowerCollections, Version=1.0.2141.24679, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_2C7097541F1C25FB7776693D3AADD77F"
+                    {
+                    "Name" = "8:PowerCollections.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:PowerCollections.dll"
             "TargetName" = "8:"
@@ -732,15 +737,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Tripoli"
-        "ProductCode" = "8:{AE75394F-2822-4200-976B-4F395ECFADF0}"
-        "PackageCode" = "8:{2E0A991A-5BEE-462F-9F7E-D11A70820EC9}"
+        "ProductCode" = "8:{01F26FE0-3626-4D7D-8FB3-8ECE841CD789}"
+        "PackageCode" = "8:{73D9950F-9410-46EB-8E76-BE146CB2E6B1}"
         "UpgradeCode" = "8:{523FD083-CBAF-4DF5-BE7E-A8841C1AC28D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:4.10.1"
+        "ProductVersion" = "8:4.10.2"
         "Manufacturer" = "8:Sunchex Systems"
         "ARPHELPTELEPHONE" = "8:843-608-1399 (voice or sms)"
         "ARPHELPLINK" = "8:https://cirdles.org"
@@ -2014,7 +2019,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DDF08BE63BEF458597C30A17C184E891"
             {
-            "SourcePath" = "8:..\\obj\\Release\\Tripoli.exe"
+            "SourcePath" = "8:..\\obj\\Debug\\Tripoli.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"

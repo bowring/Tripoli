@@ -5736,12 +5736,12 @@ namespace Tripoli
 
         private void menuItemChauvenet_Click(object sender, EventArgs e)
         {
-            frmChauvenet myChauvenet = null;
+            frmTritonCyclePerBlock myChauvenet = null;
 
             if (RawRatios != null)
             {
                 myChauvenet =
-                        new frmChauvenet(RawRatios.ChauvenetsThreshold == 0
+                        new frmTritonCyclePerBlock(RawRatios.ChauvenetsThreshold == 0
                                             ?
                                             Convert.ToDouble(Properties.Settings.Default.ChauvenetCriterion)
                                             :
@@ -5752,7 +5752,7 @@ namespace Tripoli
             else
             {
                 myChauvenet =
-                    new frmChauvenet(Convert.ToDouble(Properties.Settings.Default.ChauvenetCriterion), false);
+                    new frmTritonCyclePerBlock(Convert.ToDouble(Properties.Settings.Default.ChauvenetCriterion), false);
                 myChauvenet.ShowDialog();
             }
         }
@@ -5860,7 +5860,12 @@ namespace Tripoli
 
         private void menuItemCheckForUpdates_Click(object sender, EventArgs e)
         {
-            TripoliUtilities.checkForTripoliUpdates(true);
+            if (TripoliUtilities.checkForTripoliUpdates(true))
+            {
+                ExitTripoli();
+                Application.Exit();
+                Environment.Exit(-1);
+            }
         }
 
         private void menuItemAbout_Click(object sender, System.EventArgs e)

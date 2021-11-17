@@ -1,6 +1,6 @@
 namespace Tripoli
 {
-    partial class frmChauvenet
+    partial class frmTritonCyclePerBlock
     {
         /// <summary>
         /// Required designer variable.

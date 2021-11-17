@@ -1,3 +1,11 @@
+17.November.2021 Tripoli v. 4.10.0.2
+	Updated reading of Triton files to handle case where non-cycle data are repeated every block.
+	Updated reading of Triton files to handle case where no cycles/block count is provided in the comment field.
+	Updated auto-detect of Tripoli version to alert users to a new version when starting the program.
+	All code has been moved as open source to: https://github.com/bowring/Tripoli
+
+
+
 12.April.2021 Tripoli v. 4.10.0.0 (April 2021)
 
 News: This document is obviously out of date.  This version adds support for IsotopX PhoeniX TIMSDP files.

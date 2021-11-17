@@ -24,14 +24,14 @@ using System.Configuration;
 
 namespace Tripoli
 {
-    public partial class frmChauvenet : Form
+    public partial class frmTritonCyclePerBlock : Form
     {
         //public static double CHAUVENET_DEFAULT = 0.50;
         
         private double _ChauvenetsThreshold;
         private bool _cancel = true;
                
-        public frmChauvenet(double _ChauvenetsThreshold, Boolean fractionMode)
+        public frmTritonCyclePerBlock(double _ChauvenetsThreshold, Boolean fractionMode)
         {
             InitializeComponent();
             lblCurrentChauvenet.Visible = fractionMode;

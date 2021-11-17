@@ -16,6 +16,7 @@
 using System;
 using System.Collections;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Tripoli.vendors_data
 {
@@ -150,12 +151,18 @@ namespace Tripoli.vendors_data
                             string dateString = dateInfo[2].Replace("\t", ""); // remove tabs
 
                             Boolean probablyEuropean = false;
+                            Boolean modernFormat = false;
                             string[] dateStringInfo;
 
                             if (dateString.Contains("."))
                             {
                                 probablyEuropean = true;
                                 dateStringInfo = dateString.Split(new string[] { "." }, StringSplitOptions.RemoveEmptyEntries);
+                            }
+                            else if (dateString.Contains("-"))
+                            { // April 2021 we have new standard of yyyy-mm-dd
+                                dateStringInfo = dateString.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries);
+                                modernFormat = true;
                             }
                             else // english / american
                             {
@@ -165,28 +172,38 @@ namespace Tripoli.vendors_data
                             // test for numerical flags on date type
                             int firstDateField = Convert.ToInt32(dateStringInfo[0].Trim());
                             int secondDateField = Convert.ToInt32(dateStringInfo[1].Trim());
-                            // europeans use days in first place
-                            if (firstDateField > 12)
-                            {
-                                probablyEuropean = true;
-                            }
-                            // americans use days in second place
-                            if (secondDateField > 12)
-                            {
-                                probablyEuropean = false;
-                            }
 
-                            if (probablyEuropean)
+                            if (modernFormat)
                             {
-                                myDayOfMonth = dateStringInfo[0].Trim();
+                                myDayOfMonth = dateStringInfo[2].Trim();
                                 myMonth = dateStringInfo[1].Trim();
-                                myYear = dateStringInfo[2].Trim();
+                                myYear = dateStringInfo[0].Trim();
                             }
-                            else //  american
+                            else
                             {
-                                myDayOfMonth = dateStringInfo[1].Trim();
-                                myMonth = dateStringInfo[0].Trim();
-                                myYear = dateStringInfo[2].Trim();
+                                // europeans use days in first place
+                                if (firstDateField > 12)
+                                {
+                                    probablyEuropean = true;
+                                }
+                                // americans use days in second place
+                                if (secondDateField > 12)
+                                {
+                                    probablyEuropean = false;
+                                }
+
+                                if (probablyEuropean)
+                                {
+                                    myDayOfMonth = dateStringInfo[0].Trim();
+                                    myMonth = dateStringInfo[1].Trim();
+                                    myYear = dateStringInfo[2].Trim();
+                                }
+                                else //  american
+                                {
+                                    myDayOfMonth = dateStringInfo[1].Trim();
+                                    myMonth = dateStringInfo[0].Trim();
+                                    myYear = dateStringInfo[2].Trim();
+                                }
                             }
                         }
 
@@ -240,10 +257,27 @@ namespace Tripoli.vendors_data
                                 }
                                 catch (Exception)
                                 {
-                                   
+
                                 } if (specifiedBlockSizeInt > 0)
                                 {
                                     expectedCyclesPerBlock = specifiedBlockSizeInt;
+                                }
+                                else
+                                { // Nov 2021 request cycles per block if missing in Comment
+                                    string proposedCyclesPerBlock = "0";
+                                    Form inputBox = new Form();
+                                    DialogResult getCycleCount = ShowInputDialog(inputBox, ref proposedCyclesPerBlock);
+                                    inputBox.Hide();
+                                    frmMainTripoli.ActiveForm.Refresh();
+                                    inputBox.Close();
+                                    int numericValue;
+                                    Boolean goodCount = int.TryParse(proposedCyclesPerBlock, out numericValue);
+                                    if (goodCount && numericValue > 0)
+                                    {
+                                        expectedCyclesPerBlock = numericValue;
+                                    }
+
+
                                 }
                             }
                         }
@@ -310,23 +344,17 @@ namespace Tripoli.vendors_data
                             // June 2012 modification: user can set block size at "Comment" line in header of exp file
 
                             int currentBlock = 0;
-                            // Blocks.Add(new ArrayList());
-                            //int cycleCount = 0;
-
-                            string cycle;
-
-                            Boolean keepReadingData = (!((string)(cycle = ExpStream.ReadLine())).StartsWith("***"));
+ 
+                            string cycle = ExpStream.ReadLine();
+                            string[] testCycleData = cycle.Split(new Char[] { '\t' });
+                            string firstCell = (String)testCycleData[0];
+                            int numericValue;
+                            Boolean keepReadingData = int.TryParse(firstCell, out numericValue);
 
                             while (keepReadingData)
                             {
-                                //string[] cycleData = cycle.Split(new Char[] { '\t' });
-
-                                //cycleCount++;
-
                                 currentBlock = Blocks.Add(new ArrayList());
                                 int cycleCounter = 0;
-
-                                //Boolean deleteRowFlagDetected = false;
 
                                 while (keepReadingData && (cycleCounter < expectedCyclesPerBlock))
                                 {
@@ -376,40 +404,6 @@ namespace Tripoli.vendors_data
                                         for (int ratio = 0; ratio < myRatioDoubles.Length; ratio++)
                                         {
                                             ((ArrayList)Blocks[currentBlock]).Add(myRatioDoubles[ratio]);
-
-                                            //////try
-                                            //////{
-                                            //////    if (cycleData[ratio].StartsWith("X"))
-                                            //////    {
-                                            //////        // remove "X" prefix that denotes outliers
-                                            //////        string tempNum = cycleData[ratio].Substring(1, cycleData[ratio].Length - 1);
-                                            //////        // here for FinniganThermo, the minus 1 flags that it will be shown as red
-                                            //////        // june 2012 noah says dont exclude but include so remove -1
-                                            //////        ((ArrayList)Blocks[currentBlock]).Add(Convert.ToDouble(tempNum.Trim()));
-                                            //////    }
-                                            //////    else if (cycleData[ratio].StartsWith("D"))
-                                            //////    {
-                                            //////        ((ArrayList)Blocks[currentBlock]).Add(0.0);
-                                            //////        deleteRowFlagDetected = true;
-                                            //////    }
-                                            //////    else
-                                            //////    {
-                                            //////        ((ArrayList)Blocks[currentBlock]).Add(Convert.ToDouble(cycleData[ratio].Trim()));
-                                            //////    }
-                                            //////}
-                                            //////catch { } // this gets rid of bogus empties and spaces
-
-
-                                            ////////// D represents a value to toss used for beam interpolation
-                                            ////////try
-                                            ////////{
-                                            ////////    if (cycleData[ratio].StartsWith("D"))
-                                            ////////    {
-                                            ////////        ((ArrayList)Blocks[currentBlock]).Add(0.0);
-                                            ////////    }
-
-                                            ////////}
-                                            ////////catch { } // this gets rid of bogus empties and spaces
                                         }
 
                                         cycleCounter++;
@@ -419,25 +413,15 @@ namespace Tripoli.vendors_data
                                     keepReadingData = false;
                                     try
                                     {
-                                        cycle = ExpStream.ReadLine();
-                                        //keepReadingData = (!cycle.Contains("\t\t\t")) && (!((string)cycle).StartsWith("***"));
-                                        keepReadingData = (!((string)cycle).StartsWith("***"));
+                                        while (!ExpStream.EndOfStream && !keepReadingData)
+                                        {
+                                            cycle = ExpStream.ReadLine();
+                                            testCycleData = cycle.Split(new Char[] { '\t' });
+                                            firstCell = (String)testCycleData[0];
+                                            keepReadingData = int.TryParse(firstCell, out numericValue);
+                                        }
                                     }
                                     catch { }
-
-                                    //// check for existence of deleteRowFlagDetected and if so remove first row in block
-                                    //if (deleteRowFlagDetected)
-                                    //{
-                                    //    cycleCounter--;
-                                    //    deleteRowFlagDetected = false;
-
-                                    //    // remove last entry
-                                    //    for (int i = 0; i < FunctionNames.Count; i++)
-                                    //    {
-                                    //        int lastIndex = ((ArrayList)Blocks[currentBlock]).Count - 1;
-                                    //        ((ArrayList)Blocks[currentBlock]).RemoveAt(lastIndex);
-                                    //    }
-                                    //}
 
                                 }// while for cycle line
 
@@ -501,19 +485,8 @@ namespace Tripoli.vendors_data
 
                         ((double[])myDoubles[currentDouble])[next]
                             = Convert.ToDouble(((Double)((ArrayList)Blocks[block])[num]));
-                        //////////// reset bad data to 0  - these are shown as 'x' and ignored
-                        //////////// for FinniganThermo this is changed so that negative values from X above
-                        //////////// can be shown as red below initially
-                        //////////if (((double[])myDoubles[currentDouble])[next] < 0.0)
-                        //////////{
-                        //////////    selected.Add(next);
-                        //////////    saved.Add(((double[])myDoubles[currentDouble])[next]);
-                        //////////    count++;
-                        //////////    ((double[])myDoubles[currentDouble])[next] = Math.Abs(((double[])myDoubles[currentDouble])[next]);
-                        //////////}
 
-                        Console.WriteLine("RATIO  " + ratio + "  " + block + "  " + num + "  " + next + "  " + ((double[])myDoubles[currentDouble])[next]);
-
+                        //Console.WriteLine("RATIO  " + ratio + "  " + block + "  " + num + "  " + next + "  " + ((double[])myDoubles[currentDouble])[next]);
                     }
 
                 }
@@ -521,19 +494,6 @@ namespace Tripoli.vendors_data
                 RawRatio myRR = new RawRatio((string)FunctionNames[ratio], (double[])myDoubles[currentDouble]);
                 myRR.CyclesPerBlock = ((ArrayList)Blocks[0]).Count / ratioCount;
                 retval.Add(myRR);
-
-
-                //myRR.CalcStats();
-
-                //////////// here the negative values are set to appear as outliers
-                //////////for (int index = 0; index < count; index++)
-                //////////{
-                //////////    myRR.ActiveRatios[(int)selected[index]] = (double)saved[index];
-                //////////}
-                //////////selected.Add(count);
-                //////////myRR.SetOutliers(selected);
-
-
             }
             return retval;
         }
@@ -546,7 +506,40 @@ namespace Tripoli.vendors_data
             ExpStream.Close();
         }
 
+        private static DialogResult ShowInputDialog(Form inputBox, ref string input)
+        {
+            System.Drawing.Size size = new System.Drawing.Size(400, 70);
+
+            inputBox.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            inputBox.StartPosition = FormStartPosition.Manual;
+            inputBox.Location = frmMainTripoli.ActiveForm.Location;
+            inputBox.ClientSize = size;
+            inputBox.Text = "Specify cycles per block where 0 means ignore.";
+
+            System.Windows.Forms.TextBox textBox = new TextBox();
+            textBox.Size = new System.Drawing.Size(size.Width - 100, 23);
+            textBox.Location = new System.Drawing.Point(50, 5);
+            textBox.Text = input;
+            inputBox.Controls.Add(textBox);
+
+            Button okButton = new Button();
+            okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            okButton.Name = "okButton";
+            okButton.Size = new System.Drawing.Size(75, 23);
+            okButton.Text = "&OK";
+            okButton.Location = new System.Drawing.Point(size.Width - 230, 39);
+            inputBox.Controls.Add(okButton);
+
+            inputBox.AcceptButton = okButton;
+
+            DialogResult result = inputBox.ShowDialog();
+            input = textBox.Text;
+            return result;
+        }
+
         #endregion Methods
 
     }
+
+
 }
