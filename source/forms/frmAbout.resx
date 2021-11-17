@@ -121,8 +121,8 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfcAAAHECAYAAAAkm2MkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALDgAA
-        Cw4BQL7hQQAA/3lJREFUeF7snQe4ZEdxtlHOcbXhziVjkXMwyWRENGBsMNlgkslgosk5iQwmIyEQirsr
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALDQAA
+        Cw0B7QfALAAA/3lJREFUeF7snQe4ZEdxtlHOcbXhziVjkXMwyWRENGBsMNlgkslgosk5iQwmIyEQirsr
         EQwYg38BAkQwOYgsEAhQRnFXuwp/vT39nVunp8+ZmRs2qep5vsdGO3fmnNPd9Z6qru6+SlhYWFhYWFhY
         WFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhY
         WFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhY
@@ -1401,7 +1401,7 @@
   </data>
   <data name="richTextBox1.Text" xml:space="preserve">
     <value>Copyright 2004-2021 James F. Bowring &amp; EARTHTIME  (http://www.earthtimetestsite.com/).  
-Distributed from https://CIRDLES.org.
+Distributed from https://CIRDLES.org. Roepository: https://github.com/bowring/Tripoli
 
 Licensed under the Apache License, Version 2.0 (the "License").  You may not use this file except in compliance with the License.  You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and limitations under the License.</value>
   </data>

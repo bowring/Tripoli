@@ -20,6 +20,7 @@ using System.IO;
 using System.Net;
 using Microsoft.Vbe.Interop;
 using System.Windows.Forms;
+using System.Security.Authentication;
 
 namespace Tripoli.utilities
 {
@@ -62,17 +63,25 @@ namespace Tripoli.utilities
         /// <returns></returns>
         public static Stream getWebStream(string requestUri)
         {
-            WebRequest request;
-            WebResponse response;
+            HttpWebRequest request;
+            HttpWebResponse response;
             Stream dataStream;
 
             try
             {
-                request = WebRequest.Create(requestUri);
+                // nov 2021 updated security using info from next line
+                // https://community.developer.authorize.net/t5/Integration-and-Testing/Received-an-unexpected-EOF-or-0-bytes-from-the-transport-stream/td-p/59510
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;
+
+                request = (HttpWebRequest)WebRequest.Create(requestUri);
+                // Set some reasonable limits on resources used by this request
+                request.MaximumAutomaticRedirections = 4;
+                request.MaximumResponseHeadersLength = 4;
                 // If required by the server, set the credentials.
                 request.Credentials = CredentialCache.DefaultCredentials;
                 // Get the response.
-                response = request.GetResponse();
+                response = (HttpWebResponse)request.GetResponse();
+
                 // Display the status.
                 Console.WriteLine(((HttpWebResponse)response).StatusDescription);
                 // Get the stream containing content returned by the server.
@@ -80,7 +89,6 @@ namespace Tripoli.utilities
             }
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -95,25 +103,12 @@ namespace Tripoli.utilities
         public static bool checkForTripoliUpdates(bool verbose)
         {
             bool amUpdating = false;
-
-            if (verbose)
-            {
-                MessageBox.Show(
-                   "Please find the latest version of Tripoli at: https://github.com/bowring/Tripoli/releases",
-                                      "Tripoli Information",
-                                      MessageBoxButtons.OK,
-                                      MessageBoxIcon.Information);
-            }
-            /*
             try
             {
                 // split on \n
-                //string[] currentInstaller = getTextFromURI(
-                //    @"http://thevaccinator.com/tripoli/current-version/.current").Split(new char[] { '\n','\r' }, StringSplitOptions.RemoveEmptyEntries);
-
-                // march 2010
+                // nov 2021
                 string[] currentInstaller = getTextFromURI(
-                    @"http://earth-time.org/projects/tripoli/winos/currentRelease/.current").Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                    @"https://raw.githubusercontent.com/bowring/Tripoli/master/.currentVersion").Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
                 Console.WriteLine("version  " + System.Windows.Forms.Application.ProductVersion.CompareTo(currentInstaller[0])
                     + "\n currentInstaller Info:\n"
@@ -133,12 +128,13 @@ namespace Tripoli.utilities
                 else
                 {
                     DialogResult retval = MessageBox.Show(
-                        "A newer version of Tripoli is available."
+                        "A newer version of Tripoli is available: " + currentInstaller[0] + "."
                         + "\n\nDo you want to install it ?"
                         + "\n\nPlease be sure to read the Release Notes and Help "
                         + "\navailable through the Help menu."
-                        + "\n\nWhen you select Yes, Tripoli will close and launch "
-                        + "the installer: \n\n" + currentInstaller[1],
+                        + "\n\nWhen you select Yes, Tripoli will quit and launch "
+                        + "a browser and download the installer: \n\n" + currentInstaller[1]
+                        + "\n\nRun the new installer.",
                         "Tripoli Information",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Information);
@@ -170,11 +166,8 @@ namespace Tripoli.utilities
                                           MessageBoxButtons.OK,
                                           MessageBoxIcon.Information);
                 }
-            }*/
+            }
             return amUpdating;
-
-
         }
-
     }
 }
