@@ -51,6 +51,24 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_5FA5786D39B94E46B6AC5142E48879DB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_68EECFC60CDFC0AC14BB4F586502C2AF"
+        "OwnerKey" = "8:_CD8D6BE903A189D10B95E7E947D3EEE2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_68EECFC60CDFC0AC14BB4F586502C2AF"
+        "OwnerKey" = "8:_5FA5786D39B94E46B6AC5142E48879DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6A121B974C37485098A912FD3F058728"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -71,6 +89,12 @@
         {
         "MsmKey" = "8:_C7D913946C354D61896FBB57B8F46CD9"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CD8D6BE903A189D10B95E7E947D3EEE2"
+        "OwnerKey" = "8:_5FA5786D39B94E46B6AC5142E48879DB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -113,6 +137,24 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_DDF08BE63BEF458597C30A17C184E891"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_5FA5786D39B94E46B6AC5142E48879DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CD8D6BE903A189D10B95E7E947D3EEE2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_68EECFC60CDFC0AC14BB4F586502C2AF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -291,7 +333,7 @@
                     "_02EE1E719993132F647A5478F84E7AB1"
                     {
                     "Name" = "8:Microsoft.Vbe.Interop.dll"
-                    "Attributes" = "3:512"
+                    "Attributes" = "3:576"
                     }
                 }
             "SourcePath" = "8:Microsoft.Vbe.Interop.dll"
@@ -299,16 +341,16 @@
             "Tag" = "8:"
             "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
             "Condition" = "8:"
-            "Transitive" = "11:FALSE"
+            "Transitive" = "11:TRUE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
             "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
+            "SharedLegacy" = "11:TRUE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -405,12 +447,74 @@
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3FA7EBA5605B1462176FCF03256C3B5E"
             {
-            "AssemblyRegister" = "3:1"
+            "AssemblyRegister" = "3:3"
             "AssemblyIsInGAC" = "11:TRUE"
             "AssemblyAsmDisplayName" = "8:office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_3FA7EBA5605B1462176FCF03256C3B5E"
+                    {
+                    "Name" = "8:office.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:office.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5FA5786D39B94E46B6AC5142E48879DB"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_5FA5786D39B94E46B6AC5142E48879DB"
+                    {
+                    "Name" = "8:Microsoft.Office.Interop.Excel.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:C:\\Program Files\\Microsoft Visual Studio 10.0\\Visual Studio Tools for Office\\PIA\\Office14\\Microsoft.Office.Interop.Excel.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_68EECFC60CDFC0AC14BB4F586502C2AF"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_68EECFC60CDFC0AC14BB4F586502C2AF"
                     {
                     "Name" = "8:office.dll"
                     "Attributes" = "3:512"
@@ -512,6 +616,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CD8D6BE903A189D10B95E7E947D3EEE2"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Vbe.Interop, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_CD8D6BE903A189D10B95E7E947D3EEE2"
+                    {
+                    "Name" = "8:Microsoft.Vbe.Interop.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.Vbe.Interop.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF46D3DA8C8841C68F89E2B75715788B"
@@ -737,15 +872,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Tripoli"
-        "ProductCode" = "8:{01F26FE0-3626-4D7D-8FB3-8ECE841CD789}"
-        "PackageCode" = "8:{73D9950F-9410-46EB-8E76-BE146CB2E6B1}"
+        "ProductCode" = "8:{DA2D94B2-3066-4C3E-9024-E23E1D14B435}"
+        "PackageCode" = "8:{F80184FE-66B3-48BD-A247-B23B210A2B92}"
         "UpgradeCode" = "8:{523FD083-CBAF-4DF5-BE7E-A8841C1AC28D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:4.10.2"
+        "ProductVersion" = "8:4.10.3"
         "Manufacturer" = "8:Sunchex Systems"
         "ARPHELPTELEPHONE" = "8:843-608-1399 (voice or sms)"
         "ARPHELPLINK" = "8:https://cirdles.org"
@@ -2019,7 +2154,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DDF08BE63BEF458597C30A17C184E891"
             {
-            "SourcePath" = "8:..\\obj\\Debug\\Tripoli.exe"
+            "SourcePath" = "8:..\\obj\\Release\\Tripoli.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_35CEFBADB35C4671BF9F534B332F37D5"
