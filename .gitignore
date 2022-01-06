@@ -15,3 +15,6 @@ obj/
 [Dd]ebug*/
 #[Rr]elease*/
 #![Rr]elease*/*.msi
+Microsoft.Office.Interop.Excel.dll
+Office.dll
+Visual Studio 2010/
